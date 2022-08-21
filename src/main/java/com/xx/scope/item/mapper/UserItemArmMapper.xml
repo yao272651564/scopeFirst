@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xx.scope.item.mapper.UserItemArmMapper" >
+  <resultMap id="BaseResultMap" type="com.xx.scope.item.domain.UserItemArm" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="base_item_id" property="baseItemId" jdbcType="BIGINT" />
+    <result column="hero_id" property="heroId" jdbcType="BIGINT" />
+    <result column="hero_use_sort" property="heroUseSort" jdbcType="TINYINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="CHAR" />
+    <result column="des" property="des" jdbcType="VARCHAR" />
+    <result column="is_trade" property="isTrade" jdbcType="CHAR" />
+    <result column="grade" property="grade" jdbcType="INTEGER" />
+    <result column="quality" property="quality" jdbcType="CHAR" />
+    <result column="attack" property="attack" jdbcType="BIGINT" />
+    <result column="defense" property="defense" jdbcType="BIGINT" />
+    <result column="speed" property="speed" jdbcType="INTEGER" />
+    <result column="hp" property="hp" jdbcType="BIGINT" />
+    <result column="mp" property="mp" jdbcType="BIGINT" />
+    <result column="soul" property="soul" jdbcType="BIGINT" />
+    <result column="strengthen_level" property="strengthenLevel" jdbcType="INTEGER" />
+    <result column="starlevel" property="starlevel" jdbcType="INTEGER" />
+    <result column="double_attack" property="doubleAttack" jdbcType="INTEGER" />
+    <result column="subtract_defense" property="subtractDefense" jdbcType="INTEGER" />
+    <result column="is_use" property="isUse" jdbcType="CHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="valid" property="valid" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, base_item_id, hero_id, hero_use_sort, name, type, des, is_trade, grade, 
+    quality, attack, defense, speed, hp, mp, soul, strengthen_level, starlevel, double_attack, 
+    subtract_defense, is_use, sort, valid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_item_arm
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user_item_arm
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xx.scope.item.domain.UserItemArm" >
+    insert into user_item_arm (id, user_id, base_item_id, 
+      hero_id, hero_use_sort, name, 
+      type, des, is_trade, grade, 
+      quality, attack, defense, 
+      speed, hp, mp, soul, 
+      strengthen_level, starlevel, double_attack, 
+      subtract_defense, is_use, sort, 
+      valid)
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{baseItemId,jdbcType=BIGINT}, 
+      #{heroId,jdbcType=BIGINT}, #{heroUseSort,jdbcType=TINYINT}, #{name,jdbcType=VARCHAR}, 
+      #{type,jdbcType=CHAR}, #{des,jdbcType=VARCHAR}, #{isTrade,jdbcType=CHAR}, #{grade,jdbcType=INTEGER}, 
+      #{quality,jdbcType=CHAR}, #{attack,jdbcType=BIGINT}, #{defense,jdbcType=BIGINT}, 
+      #{speed,jdbcType=INTEGER}, #{hp,jdbcType=BIGINT}, #{mp,jdbcType=BIGINT}, #{soul,jdbcType=BIGINT}, 
+      #{strengthenLevel,jdbcType=INTEGER}, #{starlevel,jdbcType=INTEGER}, #{doubleAttack,jdbcType=INTEGER}, 
+      #{subtractDefense,jdbcType=INTEGER}, #{isUse,jdbcType=CHAR}, #{sort,jdbcType=INTEGER}, 
+      #{valid,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xx.scope.item.domain.UserItemArm" >
+    insert into user_item_arm
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="baseItemId != null" >
+        base_item_id,
+      </if>
+      <if test="heroId != null" >
+        hero_id,
+      </if>
+      <if test="heroUseSort != null" >
+        hero_use_sort,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="des != null" >
+        des,
+      </if>
+      <if test="isTrade != null" >
+        is_trade,
+      </if>
+      <if test="grade != null" >
+        grade,
+      </if>
+      <if test="quality != null" >
+        quality,
+      </if>
+      <if test="attack != null" >
+        attack,
+      </if>
+      <if test="defense != null" >
+        defense,
+      </if>
+      <if test="speed != null" >
+        speed,
+      </if>
+      <if test="hp != null" >
+        hp,
+      </if>
+      <if test="mp != null" >
+        mp,
+      </if>
+      <if test="soul != null" >
+        soul,
+      </if>
+      <if test="strengthenLevel != null" >
+        strengthen_level,
+      </if>
+      <if test="starlevel != null" >
+        starlevel,
+      </if>
+      <if test="doubleAttack != null" >
+        double_attack,
+      </if>
+      <if test="subtractDefense != null" >
+        subtract_defense,
+      </if>
+      <if test="isUse != null" >
+        is_use,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="valid != null" >
+        valid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="baseItemId != null" >
+        #{baseItemId,jdbcType=BIGINT},
+      </if>
+      <if test="heroId != null" >
+        #{heroId,jdbcType=BIGINT},
+      </if>
+      <if test="heroUseSort != null" >
+        #{heroUseSort,jdbcType=TINYINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="des != null" >
+        #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="isTrade != null" >
+        #{isTrade,jdbcType=CHAR},
+      </if>
+      <if test="grade != null" >
+        #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="quality != null" >
+        #{quality,jdbcType=CHAR},
+      </if>
+      <if test="attack != null" >
+        #{attack,jdbcType=BIGINT},
+      </if>
+      <if test="defense != null" >
+        #{defense,jdbcType=BIGINT},
+      </if>
+      <if test="speed != null" >
+        #{speed,jdbcType=INTEGER},
+      </if>
+      <if test="hp != null" >
+        #{hp,jdbcType=BIGINT},
+      </if>
+      <if test="mp != null" >
+        #{mp,jdbcType=BIGINT},
+      </if>
+      <if test="soul != null" >
+        #{soul,jdbcType=BIGINT},
+      </if>
+      <if test="strengthenLevel != null" >
+        #{strengthenLevel,jdbcType=INTEGER},
+      </if>
+      <if test="starlevel != null" >
+        #{starlevel,jdbcType=INTEGER},
+      </if>
+      <if test="doubleAttack != null" >
+        #{doubleAttack,jdbcType=INTEGER},
+      </if>
+      <if test="subtractDefense != null" >
+        #{subtractDefense,jdbcType=INTEGER},
+      </if>
+      <if test="isUse != null" >
+        #{isUse,jdbcType=CHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xx.scope.item.domain.UserItemArm" >
+    update user_item_arm
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="baseItemId != null" >
+        base_item_id = #{baseItemId,jdbcType=BIGINT},
+      </if>
+      <if test="heroId != null" >
+        hero_id = #{heroId,jdbcType=BIGINT},
+      </if>
+      <if test="heroUseSort != null" >
+        hero_use_sort = #{heroUseSort,jdbcType=TINYINT},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="des != null" >
+        des = #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="isTrade != null" >
+        is_trade = #{isTrade,jdbcType=CHAR},
+      </if>
+      <if test="grade != null" >
+        grade = #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="quality != null" >
+        quality = #{quality,jdbcType=CHAR},
+      </if>
+      <if test="attack != null" >
+        attack = #{attack,jdbcType=BIGINT},
+      </if>
+      <if test="defense != null" >
+        defense = #{defense,jdbcType=BIGINT},
+      </if>
+      <if test="speed != null" >
+        speed = #{speed,jdbcType=INTEGER},
+      </if>
+      <if test="hp != null" >
+        hp = #{hp,jdbcType=BIGINT},
+      </if>
+      <if test="mp != null" >
+        mp = #{mp,jdbcType=BIGINT},
+      </if>
+      <if test="soul != null" >
+        soul = #{soul,jdbcType=BIGINT},
+      </if>
+      <if test="strengthenLevel != null" >
+        strengthen_level = #{strengthenLevel,jdbcType=INTEGER},
+      </if>
+      <if test="starlevel != null" >
+        starlevel = #{starlevel,jdbcType=INTEGER},
+      </if>
+      <if test="doubleAttack != null" >
+        double_attack = #{doubleAttack,jdbcType=INTEGER},
+      </if>
+      <if test="subtractDefense != null" >
+        subtract_defense = #{subtractDefense,jdbcType=INTEGER},
+      </if>
+      <if test="isUse != null" >
+        is_use = #{isUse,jdbcType=CHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="valid != null" >
+        valid = #{valid,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xx.scope.item.domain.UserItemArm" >
+    update user_item_arm
+    set user_id = #{userId,jdbcType=BIGINT},
+      base_item_id = #{baseItemId,jdbcType=BIGINT},
+      hero_id = #{heroId,jdbcType=BIGINT},
+      hero_use_sort = #{heroUseSort,jdbcType=TINYINT},
+      name = #{name,jdbcType=VARCHAR},
+      type = #{type,jdbcType=CHAR},
+      des = #{des,jdbcType=VARCHAR},
+      is_trade = #{isTrade,jdbcType=CHAR},
+      grade = #{grade,jdbcType=INTEGER},
+      quality = #{quality,jdbcType=CHAR},
+      attack = #{attack,jdbcType=BIGINT},
+      defense = #{defense,jdbcType=BIGINT},
+      speed = #{speed,jdbcType=INTEGER},
+      hp = #{hp,jdbcType=BIGINT},
+      mp = #{mp,jdbcType=BIGINT},
+      soul = #{soul,jdbcType=BIGINT},
+      strengthen_level = #{strengthenLevel,jdbcType=INTEGER},
+      starlevel = #{starlevel,jdbcType=INTEGER},
+      double_attack = #{doubleAttack,jdbcType=INTEGER},
+      subtract_defense = #{subtractDefense,jdbcType=INTEGER},
+      is_use = #{isUse,jdbcType=CHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      valid = #{valid,jdbcType=CHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+
+  <!-- 获取装备列表 -->
+  <select id="selectUserArmList" resultMap="BaseResultMap"  >
+    select
+    <include refid="Base_Column_List" />
+    from user_item_arm
+    where user_id = #{userId}
+  </select>
+
+  <!-- 根据英雄装备位置查询是否有装备 -->
+  <select id="selectUserItemArmByPosion" resultMap="BaseResultMap"  >
+    select
+    <include refid="Base_Column_List" />
+    from user_item_arm
+    where user_id = #{userId} and hero_id = #{userHeroId} and hero_use_sort = #{armPostion}
+    limit 1
+  </select>
+
+  <!--  批量添加掉落商品列表-->
+  <insert id="insertBatchItemArmList"   >
+    <foreach collection="dropItemArmList" item="item" separator=";">
+    insert into user_item_arm (id, user_id, base_item_id,
+    hero_id, hero_use_sort, name,
+    type, des, is_trade, grade,
+    quality, attack, defense,
+    speed, hp, mp, soul,
+    strengthen_level, starlevel, double_attack,
+    subtract_defense, is_use, sort,
+    valid)  select #{item.id}, #{userId}, #{item.itemId}, null, null, name, type, des, is_trade, grade, quality, attack, defense, speed, hp, mp, soul
+      , 1 as strengthen_level, 1 as starlevel, double_attack, subtract_defense, '0' as is_use, 0, valid
+      from item_arm
+      where id = #{item.itemId}
+    </foreach>
+  </insert>
+
+</mapper>

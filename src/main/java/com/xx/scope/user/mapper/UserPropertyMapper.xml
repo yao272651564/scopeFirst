@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xx.scope.user.mapper.UserPropertyMapper">
+  <resultMap id="BaseResultMap" type="com.xx.scope.user.domain.UserProperty">
+    <id column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="daode" jdbcType="INTEGER" property="daode" />
+    <result column="yunqi" jdbcType="BIGINT" property="yunqi" />
+    <result column="yueli" jdbcType="BIGINT" property="yueli" />
+    <result column="org_id" jdbcType="BIGINT" property="orgId" />
+    <result column="chenghao" jdbcType="VARCHAR" property="chenghao" />
+    <result column="map" jdbcType="VARCHAR" property="map" />
+    <result column="exp" jdbcType="DECIMAL" property="exp" />
+    <result column="x" jdbcType="DECIMAL" property="x" />
+    <result column="y" jdbcType="DECIMAL" property="y" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="yuan_bao" jdbcType="DECIMAL" property="yuanBao" />
+    <result column="monster_map_id" jdbcType="INTEGER" property="monsterMapId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, daode, yunqi, yueli, org_id, chenghao, map, exp, x, y, money, yuan_bao, 
+    monster_map_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_property
+    where user_id = #{userId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from user_property
+    where user_id = #{userId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xx.scope.user.domain.UserProperty">
+    insert into user_property (user_id, daode, yunqi, 
+      yueli, org_id, chenghao, 
+      map, exp, x, y, 
+      money, yuan_bao, monster_map_id
+      )
+    values (#{userId,jdbcType=BIGINT}, #{daode,jdbcType=INTEGER}, #{yunqi,jdbcType=BIGINT}, 
+      #{yueli,jdbcType=BIGINT}, #{orgId,jdbcType=BIGINT}, #{chenghao,jdbcType=VARCHAR}, 
+      #{map,jdbcType=VARCHAR}, #{exp,jdbcType=DECIMAL}, #{x,jdbcType=DECIMAL}, #{y,jdbcType=DECIMAL}, 
+      #{money,jdbcType=DECIMAL}, #{yuanBao,jdbcType=DECIMAL}, #{monsterMapId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xx.scope.user.domain.UserProperty">
+    insert into user_property
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="daode != null">
+        daode,
+      </if>
+      <if test="yunqi != null">
+        yunqi,
+      </if>
+      <if test="yueli != null">
+        yueli,
+      </if>
+      <if test="orgId != null">
+        org_id,
+      </if>
+      <if test="chenghao != null">
+        chenghao,
+      </if>
+      <if test="map != null">
+        map,
+      </if>
+      <if test="exp != null">
+        exp,
+      </if>
+      <if test="x != null">
+        x,
+      </if>
+      <if test="y != null">
+        y,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="yuanBao != null">
+        yuan_bao,
+      </if>
+      <if test="monsterMapId != null">
+        monster_map_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="daode != null">
+        #{daode,jdbcType=INTEGER},
+      </if>
+      <if test="yunqi != null">
+        #{yunqi,jdbcType=BIGINT},
+      </if>
+      <if test="yueli != null">
+        #{yueli,jdbcType=BIGINT},
+      </if>
+      <if test="orgId != null">
+        #{orgId,jdbcType=BIGINT},
+      </if>
+      <if test="chenghao != null">
+        #{chenghao,jdbcType=VARCHAR},
+      </if>
+      <if test="map != null">
+        #{map,jdbcType=VARCHAR},
+      </if>
+      <if test="exp != null">
+        #{exp,jdbcType=DECIMAL},
+      </if>
+      <if test="x != null">
+        #{x,jdbcType=DECIMAL},
+      </if>
+      <if test="y != null">
+        #{y,jdbcType=DECIMAL},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="yuanBao != null">
+        #{yuanBao,jdbcType=DECIMAL},
+      </if>
+      <if test="monsterMapId != null">
+        #{monsterMapId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xx.scope.user.domain.UserProperty">
+    update user_property
+    <set>
+      <if test="daode != null">
+        daode = #{daode,jdbcType=INTEGER},
+      </if>
+      <if test="yunqi != null">
+        yunqi = #{yunqi,jdbcType=BIGINT},
+      </if>
+      <if test="yueli != null">
+        yueli = #{yueli,jdbcType=BIGINT},
+      </if>
+      <if test="orgId != null">
+        org_id = #{orgId,jdbcType=BIGINT},
+      </if>
+      <if test="chenghao != null">
+        chenghao = #{chenghao,jdbcType=VARCHAR},
+      </if>
+      <if test="map != null">
+        map = #{map,jdbcType=VARCHAR},
+      </if>
+      <if test="exp != null">
+        exp = #{exp,jdbcType=DECIMAL},
+      </if>
+      <if test="x != null">
+        x = #{x,jdbcType=DECIMAL},
+      </if>
+      <if test="y != null">
+        y = #{y,jdbcType=DECIMAL},
+      </if>
+      <if test="money != null">
+        money = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="yuanBao != null">
+        yuan_bao = #{yuanBao,jdbcType=DECIMAL},
+      </if>
+      <if test="monsterMapId != null">
+        monster_map_id = #{monsterMapId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xx.scope.user.domain.UserProperty">
+    update user_property
+    set daode = #{daode,jdbcType=INTEGER},
+      yunqi = #{yunqi,jdbcType=BIGINT},
+      yueli = #{yueli,jdbcType=BIGINT},
+      org_id = #{orgId,jdbcType=BIGINT},
+      chenghao = #{chenghao,jdbcType=VARCHAR},
+      map = #{map,jdbcType=VARCHAR},
+      exp = #{exp,jdbcType=DECIMAL},
+      x = #{x,jdbcType=DECIMAL},
+      y = #{y,jdbcType=DECIMAL},
+      money = #{money,jdbcType=DECIMAL},
+      yuan_bao = #{yuanBao,jdbcType=DECIMAL},
+      monster_map_id = #{monsterMapId,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=BIGINT}
+  </update>
+
+<!--  void updateExpAndMoney(@Param("userId") String userId, @Param("monsterMapId")Long monsterMapId, @Param("dropExp") Long dropExp, @Param("dropMoney") Long dropMoney, @Param("dropYuanBao") Long dropYuanBao);-->
+
+  <!-- 增加经验和金钱-->
+  <update id="updateExpAndMoney">
+      update user_property
+       set exp = exp + #{dropExp}, money = money + #{dropMoney}, yuan_bao = yuan_bao+#{dropYuanBao}
+        <if test="monsterMapId != null and monsterMapId != '' "> , monster_map_id = #{monsterMapId} </if>
+      where user_id = #{userId}
+  </update>
+
+</mapper>

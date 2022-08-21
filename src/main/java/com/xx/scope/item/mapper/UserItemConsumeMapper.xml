@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xx.scope.item.mapper.UserItemConsumeMapper" >
+  <resultMap id="BaseResultMap" type="com.xx.scope.item.domain.UserItemConsume" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="base_item_id" property="baseItemId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="CHAR" />
+    <result column="des" property="des" jdbcType="VARCHAR" />
+    <result column="grade" property="grade" jdbcType="INTEGER" />
+    <result column="sub_type" property="subType" jdbcType="CHAR" />
+    <result column="is_trade" property="isTrade" jdbcType="CHAR" />
+    <result column="quality" property="quality" jdbcType="CHAR" />
+    <result column="amount" property="amount" jdbcType="INTEGER" />
+    <result column="min_value" property="minValue" jdbcType="INTEGER" />
+    <result column="max_value" property="maxValue" jdbcType="INTEGER" />
+    <result column="valid" property="valid" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, base_item_id, user_id, name, type, des, grade, sub_type, is_trade, quality, amount, 
+    min_value, max_value, valid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_item_consume
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user_item_consume
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xx.scope.item.domain.UserItemConsume" >
+    insert into user_item_consume (id, base_item_id, user_id, 
+      name, type, des, grade, 
+      sub_type, is_trade, quality, amount, 
+      min_value, max_value, valid
+      )
+    values (#{id,jdbcType=BIGINT}, #{baseItemId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
+      #{name,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{des,jdbcType=VARCHAR}, #{grade,jdbcType=INTEGER}, 
+      #{subType,jdbcType=CHAR}, #{isTrade,jdbcType=CHAR}, #{quality,jdbcType=CHAR}, #{amount,jdbcType=INTEGER}, 
+      #{minValue,jdbcType=INTEGER}, #{maxValue,jdbcType=INTEGER}, #{valid,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xx.scope.item.domain.UserItemConsume" >
+    insert into user_item_consume
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="baseItemId != null" >
+        base_item_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="des != null" >
+        des,
+      </if>
+      <if test="grade != null" >
+        grade,
+      </if>
+      <if test="subType != null" >
+        sub_type,
+      </if>
+      <if test="isTrade != null" >
+        is_trade,
+      </if>
+      <if test="quality != null" >
+        quality,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+      <if test="minValue != null" >
+        min_value,
+      </if>
+      <if test="maxValue != null" >
+        max_value,
+      </if>
+      <if test="valid != null" >
+        valid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="baseItemId != null" >
+        #{baseItemId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="des != null" >
+        #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="subType != null" >
+        #{subType,jdbcType=CHAR},
+      </if>
+      <if test="isTrade != null" >
+        #{isTrade,jdbcType=CHAR},
+      </if>
+      <if test="quality != null" >
+        #{quality,jdbcType=CHAR},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=INTEGER},
+      </if>
+      <if test="minValue != null" >
+        #{minValue,jdbcType=INTEGER},
+      </if>
+      <if test="maxValue != null" >
+        #{maxValue,jdbcType=INTEGER},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xx.scope.item.domain.UserItemConsume" >
+    update user_item_consume
+    <set >
+      <if test="baseItemId != null" >
+        base_item_id = #{baseItemId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="des != null" >
+        des = #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        grade = #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="subType != null" >
+        sub_type = #{subType,jdbcType=CHAR},
+      </if>
+      <if test="isTrade != null" >
+        is_trade = #{isTrade,jdbcType=CHAR},
+      </if>
+      <if test="quality != null" >
+        quality = #{quality,jdbcType=CHAR},
+      </if>
+      <if test="amount != null" >
+        amount = #{amount,jdbcType=INTEGER},
+      </if>
+      <if test="minValue != null" >
+        min_value = #{minValue,jdbcType=INTEGER},
+      </if>
+      <if test="maxValue != null" >
+        max_value = #{maxValue,jdbcType=INTEGER},
+      </if>
+      <if test="valid != null" >
+        valid = #{valid,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xx.scope.item.domain.UserItemConsume" >
+    update user_item_consume
+    set base_item_id = #{baseItemId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      type = #{type,jdbcType=CHAR},
+      des = #{des,jdbcType=VARCHAR},
+      grade = #{grade,jdbcType=INTEGER},
+      sub_type = #{subType,jdbcType=CHAR},
+      is_trade = #{isTrade,jdbcType=CHAR},
+      quality = #{quality,jdbcType=CHAR},
+      amount = #{amount,jdbcType=INTEGER},
+      min_value = #{minValue,jdbcType=INTEGER},
+      max_value = #{maxValue,jdbcType=INTEGER},
+      valid = #{valid,jdbcType=CHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+
+  <!--  获取道具列表-->
+  <select id="selectUserItemConsumeList" resultMap="BaseResultMap"  >
+    select *
+    from user_item_consume
+    where user_id = #{userId}
+  </select>
+
+  <!--  将掉落的商品放到商品表-->
+  <insert id="insertBatchItemConsumeList"   >
+    <foreach collection="dropItemConsumeList" item="item" separator=";">
+    insert into user_item_consume (id, base_item_id, user_id,
+    name, type, des, grade,
+    sub_type, is_trade, quality, amount,
+    min_value, max_value, valid
+    ) select #{item.id},  #{item.itemId}, #{userId}, name, type, des, grade, sub_type, is_trade, quality, #{item.dropAmount}, min_value, max_value, valid
+      from item_consume
+      where id = #{item.itemId}
+      ON DUPLICATE KEY UPDATE amount = amount + #{item.dropAmount}
+      </foreach>
+  </insert>
+
+
+</mapper>

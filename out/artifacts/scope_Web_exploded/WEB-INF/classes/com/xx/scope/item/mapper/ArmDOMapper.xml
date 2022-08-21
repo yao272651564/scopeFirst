@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xx.scope.item.mapper.ArmDOMapper" >
+  <resultMap id="BaseResultMap" type="com.xx.scope.item.domain.ArmDO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="des" property="des" jdbcType="VARCHAR" />
+    <result column="linggen" property="linggen" jdbcType="BIGINT" />
+    <result column="jin" property="jin" jdbcType="INTEGER" />
+    <result column="mu" property="mu" jdbcType="INTEGER" />
+    <result column="shui" property="shui" jdbcType="INTEGER" />
+    <result column="huo" property="huo" jdbcType="INTEGER" />
+    <result column="tu" property="tu" jdbcType="INTEGER" />
+    <result column="feng" property="feng" jdbcType="INTEGER" />
+    <result column="lei" property="lei" jdbcType="INTEGER" />
+    <result column="bing" property="bing" jdbcType="INTEGER" />
+    <result column="ti" property="ti" jdbcType="INTEGER" />
+    <result column="shen" property="shen" jdbcType="INTEGER" />
+    <result column="use_level" property="useLevel" jdbcType="INTEGER" />
+    <result column="skill_id" property="skillId" jdbcType="BIGINT" />
+    <result column="hp" property="hp" jdbcType="INTEGER" />
+    <result column="gongji" property="gongji" jdbcType="INTEGER" />
+    <result column="fangyu" property="fangyu" jdbcType="INTEGER" />
+    <result column="zhenyuan" property="zhenyuan" jdbcType="INTEGER" />
+    <result column="shenshi" property="shenshi" jdbcType="INTEGER" />
+    <result column="sudu" property="sudu" jdbcType="INTEGER" />
+    <result column="yueli" property="yueli" jdbcType="INTEGER" />
+    <result column="baoji" property="baoji" jdbcType="INTEGER" />
+    <result column="pofang" property="pofang" jdbcType="INTEGER" />
+    <result column="fanji" property="fanji" jdbcType="INTEGER" />
+    <result column="fanzhen" property="fanzhen" jdbcType="INTEGER" />
+    <result column="lianji" property="lianji" jdbcType="INTEGER" />
+    <result column="xixue" property="xixue" jdbcType="INTEGER" />
+    <result column="xilan" property="xilan" jdbcType="INTEGER" />
+    <result column="shanbi" property="shanbi" jdbcType="INTEGER" />
+    <result column="mingzhong" property="mingzhong" jdbcType="INTEGER" />
+    <result column="valid" property="valid" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, type, status, des, linggen, jin, mu, shui, huo, tu, feng, lei, bing, ti, 
+    shen, use_level, skill_id, hp, gongji, fangyu, zhenyuan, shenshi, sudu, yueli, baoji, 
+    pofang, fanji, fanzhen, lianji, xixue, xilan, shanbi, mingzhong, valid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_arm
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_arm
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xx.scope.item.domain.ArmDO" >
+    insert into t_arm (id, name, type, 
+      status, des, linggen, 
+      jin, mu, shui, huo, 
+      tu, feng, lei, bing, 
+      ti, shen, use_level, 
+      skill_id, hp, gongji, 
+      fangyu, zhenyuan, shenshi, 
+      sudu, yueli, baoji, 
+      pofang, fanji, fanzhen, 
+      lianji, xixue, xilan, 
+      shanbi, mingzhong, valid
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{des,jdbcType=VARCHAR}, #{linggen,jdbcType=BIGINT}, 
+      #{jin,jdbcType=INTEGER}, #{mu,jdbcType=INTEGER}, #{shui,jdbcType=INTEGER}, #{huo,jdbcType=INTEGER}, 
+      #{tu,jdbcType=INTEGER}, #{feng,jdbcType=INTEGER}, #{lei,jdbcType=INTEGER}, #{bing,jdbcType=INTEGER}, 
+      #{ti,jdbcType=INTEGER}, #{shen,jdbcType=INTEGER}, #{useLevel,jdbcType=INTEGER}, 
+      #{skillId,jdbcType=BIGINT}, #{hp,jdbcType=INTEGER}, #{gongji,jdbcType=INTEGER}, 
+      #{fangyu,jdbcType=INTEGER}, #{zhenyuan,jdbcType=INTEGER}, #{shenshi,jdbcType=INTEGER}, 
+      #{sudu,jdbcType=INTEGER}, #{yueli,jdbcType=INTEGER}, #{baoji,jdbcType=INTEGER}, 
+      #{pofang,jdbcType=INTEGER}, #{fanji,jdbcType=INTEGER}, #{fanzhen,jdbcType=INTEGER}, 
+      #{lianji,jdbcType=INTEGER}, #{xixue,jdbcType=INTEGER}, #{xilan,jdbcType=INTEGER}, 
+      #{shanbi,jdbcType=INTEGER}, #{mingzhong,jdbcType=INTEGER}, #{valid,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xx.scope.item.domain.ArmDO" >
+    insert into t_arm
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="des != null" >
+        des,
+      </if>
+      <if test="linggen != null" >
+        linggen,
+      </if>
+      <if test="jin != null" >
+        jin,
+      </if>
+      <if test="mu != null" >
+        mu,
+      </if>
+      <if test="shui != null" >
+        shui,
+      </if>
+      <if test="huo != null" >
+        huo,
+      </if>
+      <if test="tu != null" >
+        tu,
+      </if>
+      <if test="feng != null" >
+        feng,
+      </if>
+      <if test="lei != null" >
+        lei,
+      </if>
+      <if test="bing != null" >
+        bing,
+      </if>
+      <if test="ti != null" >
+        ti,
+      </if>
+      <if test="shen != null" >
+        shen,
+      </if>
+      <if test="useLevel != null" >
+        use_level,
+      </if>
+      <if test="skillId != null" >
+        skill_id,
+      </if>
+      <if test="hp != null" >
+        hp,
+      </if>
+      <if test="gongji != null" >
+        gongji,
+      </if>
+      <if test="fangyu != null" >
+        fangyu,
+      </if>
+      <if test="zhenyuan != null" >
+        zhenyuan,
+      </if>
+      <if test="shenshi != null" >
+        shenshi,
+      </if>
+      <if test="sudu != null" >
+        sudu,
+      </if>
+      <if test="yueli != null" >
+        yueli,
+      </if>
+      <if test="baoji != null" >
+        baoji,
+      </if>
+      <if test="pofang != null" >
+        pofang,
+      </if>
+      <if test="fanji != null" >
+        fanji,
+      </if>
+      <if test="fanzhen != null" >
+        fanzhen,
+      </if>
+      <if test="lianji != null" >
+        lianji,
+      </if>
+      <if test="xixue != null" >
+        xixue,
+      </if>
+      <if test="xilan != null" >
+        xilan,
+      </if>
+      <if test="shanbi != null" >
+        shanbi,
+      </if>
+      <if test="mingzhong != null" >
+        mingzhong,
+      </if>
+      <if test="valid != null" >
+        valid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="des != null" >
+        #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="linggen != null" >
+        #{linggen,jdbcType=BIGINT},
+      </if>
+      <if test="jin != null" >
+        #{jin,jdbcType=INTEGER},
+      </if>
+      <if test="mu != null" >
+        #{mu,jdbcType=INTEGER},
+      </if>
+      <if test="shui != null" >
+        #{shui,jdbcType=INTEGER},
+      </if>
+      <if test="huo != null" >
+        #{huo,jdbcType=INTEGER},
+      </if>
+      <if test="tu != null" >
+        #{tu,jdbcType=INTEGER},
+      </if>
+      <if test="feng != null" >
+        #{feng,jdbcType=INTEGER},
+      </if>
+      <if test="lei != null" >
+        #{lei,jdbcType=INTEGER},
+      </if>
+      <if test="bing != null" >
+        #{bing,jdbcType=INTEGER},
+      </if>
+      <if test="ti != null" >
+        #{ti,jdbcType=INTEGER},
+      </if>
+      <if test="shen != null" >
+        #{shen,jdbcType=INTEGER},
+      </if>
+      <if test="useLevel != null" >
+        #{useLevel,jdbcType=INTEGER},
+      </if>
+      <if test="skillId != null" >
+        #{skillId,jdbcType=BIGINT},
+      </if>
+      <if test="hp != null" >
+        #{hp,jdbcType=INTEGER},
+      </if>
+      <if test="gongji != null" >
+        #{gongji,jdbcType=INTEGER},
+      </if>
+      <if test="fangyu != null" >
+        #{fangyu,jdbcType=INTEGER},
+      </if>
+      <if test="zhenyuan != null" >
+        #{zhenyuan,jdbcType=INTEGER},
+      </if>
+      <if test="shenshi != null" >
+        #{shenshi,jdbcType=INTEGER},
+      </if>
+      <if test="sudu != null" >
+        #{sudu,jdbcType=INTEGER},
+      </if>
+      <if test="yueli != null" >
+        #{yueli,jdbcType=INTEGER},
+      </if>
+      <if test="baoji != null" >
+        #{baoji,jdbcType=INTEGER},
+      </if>
+      <if test="pofang != null" >
+        #{pofang,jdbcType=INTEGER},
+      </if>
+      <if test="fanji != null" >
+        #{fanji,jdbcType=INTEGER},
+      </if>
+      <if test="fanzhen != null" >
+        #{fanzhen,jdbcType=INTEGER},
+      </if>
+      <if test="lianji != null" >
+        #{lianji,jdbcType=INTEGER},
+      </if>
+      <if test="xixue != null" >
+        #{xixue,jdbcType=INTEGER},
+      </if>
+      <if test="xilan != null" >
+        #{xilan,jdbcType=INTEGER},
+      </if>
+      <if test="shanbi != null" >
+        #{shanbi,jdbcType=INTEGER},
+      </if>
+      <if test="mingzhong != null" >
+        #{mingzhong,jdbcType=INTEGER},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xx.scope.item.domain.ArmDO" >
+    update t_arm
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="des != null" >
+        des = #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="linggen != null" >
+        linggen = #{linggen,jdbcType=BIGINT},
+      </if>
+      <if test="jin != null" >
+        jin = #{jin,jdbcType=INTEGER},
+      </if>
+      <if test="mu != null" >
+        mu = #{mu,jdbcType=INTEGER},
+      </if>
+      <if test="shui != null" >
+        shui = #{shui,jdbcType=INTEGER},
+      </if>
+      <if test="huo != null" >
+        huo = #{huo,jdbcType=INTEGER},
+      </if>
+      <if test="tu != null" >
+        tu = #{tu,jdbcType=INTEGER},
+      </if>
+      <if test="feng != null" >
+        feng = #{feng,jdbcType=INTEGER},
+      </if>
+      <if test="lei != null" >
+        lei = #{lei,jdbcType=INTEGER},
+      </if>
+      <if test="bing != null" >
+        bing = #{bing,jdbcType=INTEGER},
+      </if>
+      <if test="ti != null" >
+        ti = #{ti,jdbcType=INTEGER},
+      </if>
+      <if test="shen != null" >
+        shen = #{shen,jdbcType=INTEGER},
+      </if>
+      <if test="useLevel != null" >
+        use_level = #{useLevel,jdbcType=INTEGER},
+      </if>
+      <if test="skillId != null" >
+        skill_id = #{skillId,jdbcType=BIGINT},
+      </if>
+      <if test="hp != null" >
+        hp = #{hp,jdbcType=INTEGER},
+      </if>
+      <if test="gongji != null" >
+        gongji = #{gongji,jdbcType=INTEGER},
+      </if>
+      <if test="fangyu != null" >
+        fangyu = #{fangyu,jdbcType=INTEGER},
+      </if>
+      <if test="zhenyuan != null" >
+        zhenyuan = #{zhenyuan,jdbcType=INTEGER},
+      </if>
+      <if test="shenshi != null" >
+        shenshi = #{shenshi,jdbcType=INTEGER},
+      </if>
+      <if test="sudu != null" >
+        sudu = #{sudu,jdbcType=INTEGER},
+      </if>
+      <if test="yueli != null" >
+        yueli = #{yueli,jdbcType=INTEGER},
+      </if>
+      <if test="baoji != null" >
+        baoji = #{baoji,jdbcType=INTEGER},
+      </if>
+      <if test="pofang != null" >
+        pofang = #{pofang,jdbcType=INTEGER},
+      </if>
+      <if test="fanji != null" >
+        fanji = #{fanji,jdbcType=INTEGER},
+      </if>
+      <if test="fanzhen != null" >
+        fanzhen = #{fanzhen,jdbcType=INTEGER},
+      </if>
+      <if test="lianji != null" >
+        lianji = #{lianji,jdbcType=INTEGER},
+      </if>
+      <if test="xixue != null" >
+        xixue = #{xixue,jdbcType=INTEGER},
+      </if>
+      <if test="xilan != null" >
+        xilan = #{xilan,jdbcType=INTEGER},
+      </if>
+      <if test="shanbi != null" >
+        shanbi = #{shanbi,jdbcType=INTEGER},
+      </if>
+      <if test="mingzhong != null" >
+        mingzhong = #{mingzhong,jdbcType=INTEGER},
+      </if>
+      <if test="valid != null" >
+        valid = #{valid,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xx.scope.item.domain.ArmDO" >
+    update t_arm
+    set name = #{name,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      des = #{des,jdbcType=VARCHAR},
+      linggen = #{linggen,jdbcType=BIGINT},
+      jin = #{jin,jdbcType=INTEGER},
+      mu = #{mu,jdbcType=INTEGER},
+      shui = #{shui,jdbcType=INTEGER},
+      huo = #{huo,jdbcType=INTEGER},
+      tu = #{tu,jdbcType=INTEGER},
+      feng = #{feng,jdbcType=INTEGER},
+      lei = #{lei,jdbcType=INTEGER},
+      bing = #{bing,jdbcType=INTEGER},
+      ti = #{ti,jdbcType=INTEGER},
+      shen = #{shen,jdbcType=INTEGER},
+      use_level = #{useLevel,jdbcType=INTEGER},
+      skill_id = #{skillId,jdbcType=BIGINT},
+      hp = #{hp,jdbcType=INTEGER},
+      gongji = #{gongji,jdbcType=INTEGER},
+      fangyu = #{fangyu,jdbcType=INTEGER},
+      zhenyuan = #{zhenyuan,jdbcType=INTEGER},
+      shenshi = #{shenshi,jdbcType=INTEGER},
+      sudu = #{sudu,jdbcType=INTEGER},
+      yueli = #{yueli,jdbcType=INTEGER},
+      baoji = #{baoji,jdbcType=INTEGER},
+      pofang = #{pofang,jdbcType=INTEGER},
+      fanji = #{fanji,jdbcType=INTEGER},
+      fanzhen = #{fanzhen,jdbcType=INTEGER},
+      lianji = #{lianji,jdbcType=INTEGER},
+      xixue = #{xixue,jdbcType=INTEGER},
+      xilan = #{xilan,jdbcType=INTEGER},
+      shanbi = #{shanbi,jdbcType=INTEGER},
+      mingzhong = #{mingzhong,jdbcType=INTEGER},
+      valid = #{valid,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

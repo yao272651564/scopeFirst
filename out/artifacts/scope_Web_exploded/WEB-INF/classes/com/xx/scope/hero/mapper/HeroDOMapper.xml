@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xx.scope.hero.mapper.HeroDOMapper" >
+  <resultMap id="BaseResultMap" type="com.xx.scope.hero.domain.HeroDO" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="type" property="type" jdbcType="CHAR" />
+    <result column="icon_id" property="iconId" jdbcType="BIGINT" />
+    <result column="color" property="color" jdbcType="CHAR" />
+    <result column="sex" property="sex" jdbcType="CHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="des" property="des" jdbcType="VARCHAR" />
+    <result column="grade" property="grade" jdbcType="INTEGER" />
+    <result column="attack" property="attack" jdbcType="BIGINT" />
+    <result column="defense" property="defense" jdbcType="BIGINT" />
+    <result column="speed" property="speed" jdbcType="INTEGER" />
+    <result column="hp" property="hp" jdbcType="BIGINT" />
+    <result column="mp" property="mp" jdbcType="BIGINT" />
+    <result column="soul" property="soul" jdbcType="BIGINT" />
+    <result column="yue_li" property="yueLi" jdbcType="BIGINT" />
+    <result column="tianfu_id" property="tianfuId" jdbcType="BIGINT" />
+    <result column="skill_id" property="skillId" jdbcType="BIGINT" />
+    <result column="attack_up" property="attackUp" jdbcType="INTEGER" />
+    <result column="defense_up" property="defenseUp" jdbcType="INTEGER" />
+    <result column="hp_up" property="hpUp" jdbcType="INTEGER" />
+    <result column="mp_up" property="mpUp" jdbcType="INTEGER" />
+    <result column="speed_up" property="speedUp" jdbcType="INTEGER" />
+    <result column="valid" property="valid" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, type, icon_id, color, sex, name, des, grade, attack, defense, speed, hp, mp, 
+    soul, yue_li, tianfu_id, skill_id, attack_up, defense_up, hp_up, mp_up, speed_up, 
+    valid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from hero
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from hero
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xx.scope.hero.domain.HeroDO" >
+    insert into hero (id, type, icon_id, 
+      color, sex, name, des, 
+      grade, attack, defense, 
+      speed, hp, mp, soul, 
+      yue_li, tianfu_id, skill_id, 
+      attack_up, defense_up, hp_up, 
+      mp_up, speed_up, valid)
+    values (#{id,jdbcType=BIGINT}, #{type,jdbcType=CHAR}, #{iconId,jdbcType=BIGINT}, 
+      #{color,jdbcType=CHAR}, #{sex,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}, #{des,jdbcType=VARCHAR}, 
+      #{grade,jdbcType=INTEGER}, #{attack,jdbcType=BIGINT}, #{defense,jdbcType=BIGINT}, 
+      #{speed,jdbcType=INTEGER}, #{hp,jdbcType=BIGINT}, #{mp,jdbcType=BIGINT}, #{soul,jdbcType=BIGINT}, 
+      #{yueLi,jdbcType=BIGINT}, #{tianfuId,jdbcType=BIGINT}, #{skillId,jdbcType=BIGINT}, 
+      #{attackUp,jdbcType=INTEGER}, #{defenseUp,jdbcType=INTEGER}, #{hpUp,jdbcType=INTEGER}, 
+      #{mpUp,jdbcType=INTEGER}, #{speedUp,jdbcType=INTEGER}, #{valid,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xx.scope.hero.domain.HeroDO" >
+    insert into hero
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="iconId != null" >
+        icon_id,
+      </if>
+      <if test="color != null" >
+        color,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="des != null" >
+        des,
+      </if>
+      <if test="grade != null" >
+        grade,
+      </if>
+      <if test="attack != null" >
+        attack,
+      </if>
+      <if test="defense != null" >
+        defense,
+      </if>
+      <if test="speed != null" >
+        speed,
+      </if>
+      <if test="hp != null" >
+        hp,
+      </if>
+      <if test="mp != null" >
+        mp,
+      </if>
+      <if test="soul != null" >
+        soul,
+      </if>
+      <if test="yueLi != null" >
+        yue_li,
+      </if>
+      <if test="tianfuId != null" >
+        tianfu_id,
+      </if>
+      <if test="skillId != null" >
+        skill_id,
+      </if>
+      <if test="attackUp != null" >
+        attack_up,
+      </if>
+      <if test="defenseUp != null" >
+        defense_up,
+      </if>
+      <if test="hpUp != null" >
+        hp_up,
+      </if>
+      <if test="mpUp != null" >
+        mp_up,
+      </if>
+      <if test="speedUp != null" >
+        speed_up,
+      </if>
+      <if test="valid != null" >
+        valid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="iconId != null" >
+        #{iconId,jdbcType=BIGINT},
+      </if>
+      <if test="color != null" >
+        #{color,jdbcType=CHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="des != null" >
+        #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="attack != null" >
+        #{attack,jdbcType=BIGINT},
+      </if>
+      <if test="defense != null" >
+        #{defense,jdbcType=BIGINT},
+      </if>
+      <if test="speed != null" >
+        #{speed,jdbcType=INTEGER},
+      </if>
+      <if test="hp != null" >
+        #{hp,jdbcType=BIGINT},
+      </if>
+      <if test="mp != null" >
+        #{mp,jdbcType=BIGINT},
+      </if>
+      <if test="soul != null" >
+        #{soul,jdbcType=BIGINT},
+      </if>
+      <if test="yueLi != null" >
+        #{yueLi,jdbcType=BIGINT},
+      </if>
+      <if test="tianfuId != null" >
+        #{tianfuId,jdbcType=BIGINT},
+      </if>
+      <if test="skillId != null" >
+        #{skillId,jdbcType=BIGINT},
+      </if>
+      <if test="attackUp != null" >
+        #{attackUp,jdbcType=INTEGER},
+      </if>
+      <if test="defenseUp != null" >
+        #{defenseUp,jdbcType=INTEGER},
+      </if>
+      <if test="hpUp != null" >
+        #{hpUp,jdbcType=INTEGER},
+      </if>
+      <if test="mpUp != null" >
+        #{mpUp,jdbcType=INTEGER},
+      </if>
+      <if test="speedUp != null" >
+        #{speedUp,jdbcType=INTEGER},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xx.scope.hero.domain.HeroDO" >
+    update hero
+    <set >
+      <if test="type != null" >
+        type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="iconId != null" >
+        icon_id = #{iconId,jdbcType=BIGINT},
+      </if>
+      <if test="color != null" >
+        color = #{color,jdbcType=CHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="des != null" >
+        des = #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        grade = #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="attack != null" >
+        attack = #{attack,jdbcType=BIGINT},
+      </if>
+      <if test="defense != null" >
+        defense = #{defense,jdbcType=BIGINT},
+      </if>
+      <if test="speed != null" >
+        speed = #{speed,jdbcType=INTEGER},
+      </if>
+      <if test="hp != null" >
+        hp = #{hp,jdbcType=BIGINT},
+      </if>
+      <if test="mp != null" >
+        mp = #{mp,jdbcType=BIGINT},
+      </if>
+      <if test="soul != null" >
+        soul = #{soul,jdbcType=BIGINT},
+      </if>
+      <if test="yueLi != null" >
+        yue_li = #{yueLi,jdbcType=BIGINT},
+      </if>
+      <if test="tianfuId != null" >
+        tianfu_id = #{tianfuId,jdbcType=BIGINT},
+      </if>
+      <if test="skillId != null" >
+        skill_id = #{skillId,jdbcType=BIGINT},
+      </if>
+      <if test="attackUp != null" >
+        attack_up = #{attackUp,jdbcType=INTEGER},
+      </if>
+      <if test="defenseUp != null" >
+        defense_up = #{defenseUp,jdbcType=INTEGER},
+      </if>
+      <if test="hpUp != null" >
+        hp_up = #{hpUp,jdbcType=INTEGER},
+      </if>
+      <if test="mpUp != null" >
+        mp_up = #{mpUp,jdbcType=INTEGER},
+      </if>
+      <if test="speedUp != null" >
+        speed_up = #{speedUp,jdbcType=INTEGER},
+      </if>
+      <if test="valid != null" >
+        valid = #{valid,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xx.scope.hero.domain.HeroDO" >
+    update hero
+    set type = #{type,jdbcType=CHAR},
+      icon_id = #{iconId,jdbcType=BIGINT},
+      color = #{color,jdbcType=CHAR},
+      sex = #{sex,jdbcType=CHAR},
+      name = #{name,jdbcType=VARCHAR},
+      des = #{des,jdbcType=VARCHAR},
+      grade = #{grade,jdbcType=INTEGER},
+      attack = #{attack,jdbcType=BIGINT},
+      defense = #{defense,jdbcType=BIGINT},
+      speed = #{speed,jdbcType=INTEGER},
+      hp = #{hp,jdbcType=BIGINT},
+      mp = #{mp,jdbcType=BIGINT},
+      soul = #{soul,jdbcType=BIGINT},
+      yue_li = #{yueLi,jdbcType=BIGINT},
+      tianfu_id = #{tianfuId,jdbcType=BIGINT},
+      skill_id = #{skillId,jdbcType=BIGINT},
+      attack_up = #{attackUp,jdbcType=INTEGER},
+      defense_up = #{defenseUp,jdbcType=INTEGER},
+      hp_up = #{hpUp,jdbcType=INTEGER},
+      mp_up = #{mpUp,jdbcType=INTEGER},
+      speed_up = #{speedUp,jdbcType=INTEGER},
+      valid = #{valid,jdbcType=CHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+<!--  随机获取角色-->
+  <select id="selectRandomHeroList" resultMap="BaseResultMap"  >
+    select
+    <include refid="Base_Column_List" />
+    from hero
+    order by RAND() limit 1
+  </select>
+
+</mapper>

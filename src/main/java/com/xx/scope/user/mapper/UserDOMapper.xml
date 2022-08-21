@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xx.scope.user.mapper.UserDOMapper">
+  <resultMap id="BaseResultMap" type="com.xx.scope.user.domain.UserDO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="pet_name" jdbcType="VARCHAR" property="petName" />
+    <result column="sex" jdbcType="CHAR" property="sex" />
+    <result column="star_level" jdbcType="INTEGER" property="starLevel" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="token" jdbcType="VARCHAR" property="token" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="device_token" jdbcType="VARCHAR" property="deviceToken" />
+    <result column="device_type" jdbcType="CHAR" property="deviceType" />
+    <result column="share_user_id" jdbcType="BIGINT" property="shareUserId" />
+    <result column="type" jdbcType="CHAR" property="type" />
+    <result column="udid" jdbcType="BIGINT" property="udid" />
+    <result column="channel" jdbcType="CHAR" property="channel" />
+    <result column="child_channel" jdbcType="VARCHAR" property="childChannel" />
+    <result column="identity_Number" jdbcType="VARCHAR" property="identityNumber" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, mobile, pet_name, sex, star_level, status, token, create_time, account, password, 
+    last_login_time, modify_time, device_token, device_type, share_user_id, type, udid, 
+    channel, child_channel, identity_Number
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xx.scope.user.domain.UserDO">
+    insert into t_user (id, mobile, pet_name, 
+      sex, star_level, status, token, 
+      create_time, account, password, 
+      last_login_time, modify_time, device_token, 
+      device_type, share_user_id, type, 
+      udid, channel, child_channel, 
+      identity_Number)
+    values (#{id,jdbcType=BIGINT}, #{mobile,jdbcType=VARCHAR}, #{petName,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=CHAR}, #{starLevel,jdbcType=INTEGER}, #{status,jdbcType=CHAR}, #{token,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{lastLoginTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}, #{deviceToken,jdbcType=VARCHAR}, 
+      #{deviceType,jdbcType=CHAR}, #{shareUserId,jdbcType=BIGINT}, #{type,jdbcType=CHAR}, 
+      #{udid,jdbcType=BIGINT}, #{channel,jdbcType=CHAR}, #{childChannel,jdbcType=VARCHAR}, 
+      #{identityNumber,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xx.scope.user.domain.UserDO">
+    insert into t_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="petName != null">
+        pet_name,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="starLevel != null">
+        star_level,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="token != null">
+        token,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="account != null">
+        account,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+      <if test="deviceToken != null">
+        device_token,
+      </if>
+      <if test="deviceType != null">
+        device_type,
+      </if>
+      <if test="shareUserId != null">
+        share_user_id,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="udid != null">
+        udid,
+      </if>
+      <if test="channel != null">
+        channel,
+      </if>
+      <if test="childChannel != null">
+        child_channel,
+      </if>
+      <if test="identityNumber != null">
+        identity_Number,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="petName != null">
+        #{petName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="starLevel != null">
+        #{starLevel,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="token != null">
+        #{token,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginTime != null">
+        #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deviceToken != null">
+        #{deviceToken,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceType != null">
+        #{deviceType,jdbcType=CHAR},
+      </if>
+      <if test="shareUserId != null">
+        #{shareUserId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="udid != null">
+        #{udid,jdbcType=BIGINT},
+      </if>
+      <if test="channel != null">
+        #{channel,jdbcType=CHAR},
+      </if>
+      <if test="childChannel != null">
+        #{childChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="identityNumber != null">
+        #{identityNumber,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xx.scope.user.domain.UserDO">
+    update t_user
+    <set>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="petName != null">
+        pet_name = #{petName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="starLevel != null">
+        star_level = #{starLevel,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="token != null">
+        token = #{token,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="account != null">
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deviceToken != null">
+        device_token = #{deviceToken,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceType != null">
+        device_type = #{deviceType,jdbcType=CHAR},
+      </if>
+      <if test="shareUserId != null">
+        share_user_id = #{shareUserId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="udid != null">
+        udid = #{udid,jdbcType=BIGINT},
+      </if>
+      <if test="channel != null">
+        channel = #{channel,jdbcType=CHAR},
+      </if>
+      <if test="childChannel != null">
+        child_channel = #{childChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="identityNumber != null">
+        identity_Number = #{identityNumber,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xx.scope.user.domain.UserDO">
+    update t_user
+    set mobile = #{mobile,jdbcType=VARCHAR},
+      pet_name = #{petName,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=CHAR},
+      star_level = #{starLevel,jdbcType=INTEGER},
+      status = #{status,jdbcType=CHAR},
+      token = #{token,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      account = #{account,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      device_token = #{deviceToken,jdbcType=VARCHAR},
+      device_type = #{deviceType,jdbcType=CHAR},
+      share_user_id = #{shareUserId,jdbcType=BIGINT},
+      type = #{type,jdbcType=CHAR},
+      udid = #{udid,jdbcType=BIGINT},
+      channel = #{channel,jdbcType=CHAR},
+      child_channel = #{childChannel,jdbcType=VARCHAR},
+      identity_Number = #{identityNumber,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <!--根据账号获取用户信息-->
+  <select id="selectUserByAccount" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_user
+    where account = #{account}
+  </select>
+
+  <!-- 按照五行基础增加经验-->
+  <update id="updateExp">
+      update user_property set now_exp = now_exp + (jin+mu+shui+huo+tu+feng+lei+bing)*grade
+      where user_id = #{userId}
+  </update>
+</mapper>

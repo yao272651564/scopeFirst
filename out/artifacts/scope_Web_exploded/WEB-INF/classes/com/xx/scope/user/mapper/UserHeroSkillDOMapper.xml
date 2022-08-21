@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xx.scope.user.mapper.UserHeroSkillDOMapper" >
+  <resultMap id="BaseResultMap" type="com.xx.scope.user.domain.UserHeroSkillDO" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_hero_id" property="userHeroId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="skill_id" property="skillId" jdbcType="BIGINT" />
+    <result column="is_use" property="isUse" jdbcType="CHAR" />
+    <result column="use_sequence" property="useSequence" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="depiction" property="depiction" jdbcType="VARCHAR" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="CHAR" />
+    <result column="target_num" property="targetNum" jdbcType="INTEGER" />
+    <result column="aim_target" property="aimTarget" jdbcType="CHAR" />
+    <result column="affect_type" property="affectType" jdbcType="CHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="need_zhenyuan" property="needZhenyuan" jdbcType="BIGINT" />
+    <result column="cd" property="cd" jdbcType="INTEGER" />
+    <result column="attack_rate" property="attackRate" jdbcType="DOUBLE" />
+    <result column="cont" property="cont" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_hero_id, user_id, skill_id, is_use, use_sequence, name, depiction, icon, 
+    type, target_num, aim_target, affect_type, status, need_zhenyuan, cd, attack_rate, 
+    cont
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_user_hero_skill
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_user_hero_skill
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xx.scope.user.domain.UserHeroSkillDO" >
+    insert into t_user_hero_skill (id, user_hero_id, user_id, 
+      skill_id, is_use, use_sequence, 
+      name, depiction, icon, 
+      type, target_num, aim_target, 
+      affect_type, status, need_zhenyuan, 
+      cd, attack_rate, cont
+      )
+    values (#{id,jdbcType=BIGINT}, #{userHeroId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
+      #{skillId,jdbcType=BIGINT}, #{isUse,jdbcType=CHAR}, #{useSequence,jdbcType=INTEGER}, 
+      #{name,jdbcType=VARCHAR}, #{depiction,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, 
+      #{type,jdbcType=CHAR}, #{targetNum,jdbcType=INTEGER}, #{aimTarget,jdbcType=CHAR}, 
+      #{affectType,jdbcType=CHAR}, #{status,jdbcType=CHAR}, #{needZhenyuan,jdbcType=BIGINT}, 
+      #{cd,jdbcType=INTEGER}, #{attackRate,jdbcType=DOUBLE}, #{cont,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xx.scope.user.domain.UserHeroSkillDO" >
+    insert into t_user_hero_skill
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userHeroId != null" >
+        user_hero_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="skillId != null" >
+        skill_id,
+      </if>
+      <if test="isUse != null" >
+        is_use,
+      </if>
+      <if test="useSequence != null" >
+        use_sequence,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="depiction != null" >
+        depiction,
+      </if>
+      <if test="icon != null" >
+        icon,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="targetNum != null" >
+        target_num,
+      </if>
+      <if test="aimTarget != null" >
+        aim_target,
+      </if>
+      <if test="affectType != null" >
+        affect_type,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="needZhenyuan != null" >
+        need_zhenyuan,
+      </if>
+      <if test="cd != null" >
+        cd,
+      </if>
+      <if test="attackRate != null" >
+        attack_rate,
+      </if>
+      <if test="cont != null" >
+        cont,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userHeroId != null" >
+        #{userHeroId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="skillId != null" >
+        #{skillId,jdbcType=BIGINT},
+      </if>
+      <if test="isUse != null" >
+        #{isUse,jdbcType=CHAR},
+      </if>
+      <if test="useSequence != null" >
+        #{useSequence,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="depiction != null" >
+        #{depiction,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null" >
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="targetNum != null" >
+        #{targetNum,jdbcType=INTEGER},
+      </if>
+      <if test="aimTarget != null" >
+        #{aimTarget,jdbcType=CHAR},
+      </if>
+      <if test="affectType != null" >
+        #{affectType,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="needZhenyuan != null" >
+        #{needZhenyuan,jdbcType=BIGINT},
+      </if>
+      <if test="cd != null" >
+        #{cd,jdbcType=INTEGER},
+      </if>
+      <if test="attackRate != null" >
+        #{attackRate,jdbcType=DOUBLE},
+      </if>
+      <if test="cont != null" >
+        #{cont,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xx.scope.user.domain.UserHeroSkillDO" >
+    update t_user_hero_skill
+    <set >
+      <if test="userHeroId != null" >
+        user_hero_id = #{userHeroId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="skillId != null" >
+        skill_id = #{skillId,jdbcType=BIGINT},
+      </if>
+      <if test="isUse != null" >
+        is_use = #{isUse,jdbcType=CHAR},
+      </if>
+      <if test="useSequence != null" >
+        use_sequence = #{useSequence,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="depiction != null" >
+        depiction = #{depiction,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null" >
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="targetNum != null" >
+        target_num = #{targetNum,jdbcType=INTEGER},
+      </if>
+      <if test="aimTarget != null" >
+        aim_target = #{aimTarget,jdbcType=CHAR},
+      </if>
+      <if test="affectType != null" >
+        affect_type = #{affectType,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="needZhenyuan != null" >
+        need_zhenyuan = #{needZhenyuan,jdbcType=BIGINT},
+      </if>
+      <if test="cd != null" >
+        cd = #{cd,jdbcType=INTEGER},
+      </if>
+      <if test="attackRate != null" >
+        attack_rate = #{attackRate,jdbcType=DOUBLE},
+      </if>
+      <if test="cont != null" >
+        cont = #{cont,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xx.scope.user.domain.UserHeroSkillDO" >
+    update t_user_hero_skill
+    set user_hero_id = #{userHeroId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      skill_id = #{skillId,jdbcType=BIGINT},
+      is_use = #{isUse,jdbcType=CHAR},
+      use_sequence = #{useSequence,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      depiction = #{depiction,jdbcType=VARCHAR},
+      icon = #{icon,jdbcType=VARCHAR},
+      type = #{type,jdbcType=CHAR},
+      target_num = #{targetNum,jdbcType=INTEGER},
+      aim_target = #{aimTarget,jdbcType=CHAR},
+      affect_type = #{affectType,jdbcType=CHAR},
+      status = #{status,jdbcType=CHAR},
+      need_zhenyuan = #{needZhenyuan,jdbcType=BIGINT},
+      cd = #{cd,jdbcType=INTEGER},
+      attack_rate = #{attackRate,jdbcType=DOUBLE},
+      cont = #{cont,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+
+  <!--获取上阵的装备的技能列表-->
+  <select id="selectFightHeroSkillList" resultMap="BaseResultMap" >
+    select tuhs.*
+    from t_user_hero_skill as tuhs
+    left join t_user_hero as tuh on(tuhs.user_hero_id = tuh.id)
+    where tuhs.user_id = #{userId} and tuh.action_status = '2' and tuhs.is_use = '1'
+  </select>
+
+</mapper>

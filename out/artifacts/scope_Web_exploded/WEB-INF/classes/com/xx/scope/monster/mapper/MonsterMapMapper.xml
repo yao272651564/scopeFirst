@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xx.scope.monster.mapper.MonsterMapMapper" >
+  <resultMap id="BaseResultMap" type="com.xx.scope.monster.domain.MonsterMap" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="CHAR" />
+    <result column="drop_experience" property="dropExperience" jdbcType="BIGINT" />
+    <result column="drop_money" property="dropMoney" jdbcType="BIGINT" />
+    <result column="valid" property="valid" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, type, drop_experience, drop_money, valid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from monster_map
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from monster_map
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xx.scope.monster.domain.MonsterMap" >
+    insert into monster_map (id, name, type, drop_experience, 
+      drop_money, valid)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{dropExperience,jdbcType=BIGINT}, 
+      #{dropMoney,jdbcType=BIGINT}, #{valid,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xx.scope.monster.domain.MonsterMap" >
+    insert into monster_map
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="dropExperience != null" >
+        drop_experience,
+      </if>
+      <if test="dropMoney != null" >
+        drop_money,
+      </if>
+      <if test="valid != null" >
+        valid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="dropExperience != null" >
+        #{dropExperience,jdbcType=BIGINT},
+      </if>
+      <if test="dropMoney != null" >
+        #{dropMoney,jdbcType=BIGINT},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xx.scope.monster.domain.MonsterMap" >
+    update monster_map
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="dropExperience != null" >
+        drop_experience = #{dropExperience,jdbcType=BIGINT},
+      </if>
+      <if test="dropMoney != null" >
+        drop_money = #{dropMoney,jdbcType=BIGINT},
+      </if>
+      <if test="valid != null" >
+        valid = #{valid,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xx.scope.monster.domain.MonsterMap" >
+    update monster_map
+    set name = #{name,jdbcType=VARCHAR},
+      type = #{type,jdbcType=CHAR},
+      drop_experience = #{dropExperience,jdbcType=BIGINT},
+      drop_money = #{dropMoney,jdbcType=BIGINT},
+      valid = #{valid,jdbcType=CHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xx.scope.user.mapper.UserGongfaDOMapper" >
+  <resultMap id="BaseResultMap" type="com.xx.scope.user.domain.UserGongfaDO" >
+    <id column="user_id" property="userId" jdbcType="BIGINT" />
+    <id column="gongfa_id" property="gongfaId" jdbcType="BIGINT" />
+    <result column="grade" property="grade" jdbcType="INTEGER" />
+    <result column="hp_up" property="hpUp" jdbcType="INTEGER" />
+    <result column="gongji_up" property="gongjiUp" jdbcType="INTEGER" />
+    <result column="fangyu_up" property="fangyuUp" jdbcType="INTEGER" />
+    <result column="zhenyuan_up" property="zhenyuanUp" jdbcType="INTEGER" />
+    <result column="shenshi_up" property="shenshiUp" jdbcType="INTEGER" />
+    <result column="sudu_up" property="suduUp" jdbcType="INTEGER" />
+    <result column="yueli_up" property="yueliUp" jdbcType="INTEGER" />
+    <result column="now_exp" property="nowExp" jdbcType="BIGINT" />
+    <result column="next_level_exp" property="nextLevelExp" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    user_id, gongfa_id, grade, hp_up, gongji_up, fangyu_up, zhenyuan_up, shenshi_up, 
+    sudu_up, yueli_up, now_exp, next_level_exp
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.xx.scope.user.domain.UserGongfaDOKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_user_gongfa
+    where user_id = #{userId,jdbcType=BIGINT}
+      and gongfa_id = #{gongfaId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.xx.scope.user.domain.UserGongfaDOKey" >
+    delete from t_user_gongfa
+    where user_id = #{userId,jdbcType=BIGINT}
+      and gongfa_id = #{gongfaId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xx.scope.user.domain.UserGongfaDO" >
+    insert into t_user_gongfa (user_id, gongfa_id, grade, 
+      hp_up, gongji_up, fangyu_up, 
+      zhenyuan_up, shenshi_up, sudu_up, 
+      yueli_up, now_exp, next_level_exp
+      )
+    values (#{userId,jdbcType=BIGINT}, #{gongfaId,jdbcType=BIGINT}, #{grade,jdbcType=INTEGER}, 
+      #{hpUp,jdbcType=INTEGER}, #{gongjiUp,jdbcType=INTEGER}, #{fangyuUp,jdbcType=INTEGER}, 
+      #{zhenyuanUp,jdbcType=INTEGER}, #{shenshiUp,jdbcType=INTEGER}, #{suduUp,jdbcType=INTEGER}, 
+      #{yueliUp,jdbcType=INTEGER}, #{nowExp,jdbcType=BIGINT}, #{nextLevelExp,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xx.scope.user.domain.UserGongfaDO" >
+    insert into t_user_gongfa
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="gongfaId != null" >
+        gongfa_id,
+      </if>
+      <if test="grade != null" >
+        grade,
+      </if>
+      <if test="hpUp != null" >
+        hp_up,
+      </if>
+      <if test="gongjiUp != null" >
+        gongji_up,
+      </if>
+      <if test="fangyuUp != null" >
+        fangyu_up,
+      </if>
+      <if test="zhenyuanUp != null" >
+        zhenyuan_up,
+      </if>
+      <if test="shenshiUp != null" >
+        shenshi_up,
+      </if>
+      <if test="suduUp != null" >
+        sudu_up,
+      </if>
+      <if test="yueliUp != null" >
+        yueli_up,
+      </if>
+      <if test="nowExp != null" >
+        now_exp,
+      </if>
+      <if test="nextLevelExp != null" >
+        next_level_exp,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="gongfaId != null" >
+        #{gongfaId,jdbcType=BIGINT},
+      </if>
+      <if test="grade != null" >
+        #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="hpUp != null" >
+        #{hpUp,jdbcType=INTEGER},
+      </if>
+      <if test="gongjiUp != null" >
+        #{gongjiUp,jdbcType=INTEGER},
+      </if>
+      <if test="fangyuUp != null" >
+        #{fangyuUp,jdbcType=INTEGER},
+      </if>
+      <if test="zhenyuanUp != null" >
+        #{zhenyuanUp,jdbcType=INTEGER},
+      </if>
+      <if test="shenshiUp != null" >
+        #{shenshiUp,jdbcType=INTEGER},
+      </if>
+      <if test="suduUp != null" >
+        #{suduUp,jdbcType=INTEGER},
+      </if>
+      <if test="yueliUp != null" >
+        #{yueliUp,jdbcType=INTEGER},
+      </if>
+      <if test="nowExp != null" >
+        #{nowExp,jdbcType=BIGINT},
+      </if>
+      <if test="nextLevelExp != null" >
+        #{nextLevelExp,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xx.scope.user.domain.UserGongfaDO" >
+    update t_user_gongfa
+    <set >
+      <if test="grade != null" >
+        grade = #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="hpUp != null" >
+        hp_up = #{hpUp,jdbcType=INTEGER},
+      </if>
+      <if test="gongjiUp != null" >
+        gongji_up = #{gongjiUp,jdbcType=INTEGER},
+      </if>
+      <if test="fangyuUp != null" >
+        fangyu_up = #{fangyuUp,jdbcType=INTEGER},
+      </if>
+      <if test="zhenyuanUp != null" >
+        zhenyuan_up = #{zhenyuanUp,jdbcType=INTEGER},
+      </if>
+      <if test="shenshiUp != null" >
+        shenshi_up = #{shenshiUp,jdbcType=INTEGER},
+      </if>
+      <if test="suduUp != null" >
+        sudu_up = #{suduUp,jdbcType=INTEGER},
+      </if>
+      <if test="yueliUp != null" >
+        yueli_up = #{yueliUp,jdbcType=INTEGER},
+      </if>
+      <if test="nowExp != null" >
+        now_exp = #{nowExp,jdbcType=BIGINT},
+      </if>
+      <if test="nextLevelExp != null" >
+        next_level_exp = #{nextLevelExp,jdbcType=BIGINT},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=BIGINT}
+      and gongfa_id = #{gongfaId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xx.scope.user.domain.UserGongfaDO" >
+    update t_user_gongfa
+    set grade = #{grade,jdbcType=INTEGER},
+      hp_up = #{hpUp,jdbcType=INTEGER},
+      gongji_up = #{gongjiUp,jdbcType=INTEGER},
+      fangyu_up = #{fangyuUp,jdbcType=INTEGER},
+      zhenyuan_up = #{zhenyuanUp,jdbcType=INTEGER},
+      shenshi_up = #{shenshiUp,jdbcType=INTEGER},
+      sudu_up = #{suduUp,jdbcType=INTEGER},
+      yueli_up = #{yueliUp,jdbcType=INTEGER},
+      now_exp = #{nowExp,jdbcType=BIGINT},
+      next_level_exp = #{nextLevelExp,jdbcType=BIGINT}
+    where user_id = #{userId,jdbcType=BIGINT}
+      and gongfa_id = #{gongfaId,jdbcType=BIGINT}
+  </update>
+
+  <!--获取用户所有功法加成-->
+  <select id="selectAllGongFaSum" resultMap="BaseResultMap" >
+    select  user_id, sum(hp_up) as hp_up, sum(gongji_up) as gongji_up, sum(fangyu_up) as fangyu_up,sum(zhenyuan_up) as zhenyuan_up, sum(shenshi_up) as shenshi_up,
+    sum(sudu_up) as sudu_up, sum(yueli_up) as yueli_up
+    from t_user_gongfa
+    where user_id = #{userId}
+  </select>
+
+</mapper>

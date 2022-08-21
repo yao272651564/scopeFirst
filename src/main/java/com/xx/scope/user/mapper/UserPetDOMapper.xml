@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xx.scope.user.mapper.UserPetDOMapper">
+  <resultMap id="BaseResultMap" type="com.xx.scope.user.domain.UserPetDO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="type" jdbcType="CHAR" property="type" />
+    <result column="is_use" jdbcType="CHAR" property="isUse" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="linggen" jdbcType="INTEGER" property="linggen" />
+    <result column="jin" jdbcType="INTEGER" property="jin" />
+    <result column="mu" jdbcType="INTEGER" property="mu" />
+    <result column="shui" jdbcType="INTEGER" property="shui" />
+    <result column="huo" jdbcType="INTEGER" property="huo" />
+    <result column="tu" jdbcType="INTEGER" property="tu" />
+    <result column="feng" jdbcType="INTEGER" property="feng" />
+    <result column="lei" jdbcType="INTEGER" property="lei" />
+    <result column="bing" jdbcType="INTEGER" property="bing" />
+    <result column="ti" jdbcType="INTEGER" property="ti" />
+    <result column="shen" jdbcType="INTEGER" property="shen" />
+    <result column="gongji" jdbcType="BIGINT" property="gongji" />
+    <result column="fangyu" jdbcType="BIGINT" property="fangyu" />
+    <result column="yidongsudu" jdbcType="INTEGER" property="yidongsudu" />
+    <result column="grade" jdbcType="INTEGER" property="grade" />
+    <result column="hp" jdbcType="BIGINT" property="hp" />
+    <result column="shenshi" jdbcType="BIGINT" property="shenshi" />
+    <result column="zhenyuan" jdbcType="BIGINT" property="zhenyuan" />
+    <result column="daode" jdbcType="INTEGER" property="daode" />
+    <result column="yunqi" jdbcType="BIGINT" property="yunqi" />
+    <result column="yueli" jdbcType="BIGINT" property="yueli" />
+    <result column="x" jdbcType="DECIMAL" property="x" />
+    <result column="y" jdbcType="DECIMAL" property="y" />
+    <result column="valid" jdbcType="CHAR" property="valid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, type, is_use, name, linggen, jin, mu, shui, huo, tu, feng, lei, bing, 
+    ti, shen, gongji, fangyu, yidongsudu, grade, hp, shenshi, zhenyuan, daode, yunqi, 
+    yueli, x, y, valid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_user_pet
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_user_pet
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xx.scope.user.domain.UserPetDO">
+    insert into t_user_pet (id, user_id, type, 
+      is_use, name, linggen, 
+      jin, mu, shui, huo, 
+      tu, feng, lei, bing, 
+      ti, shen, gongji, fangyu, 
+      yidongsudu, grade, hp, 
+      shenshi, zhenyuan, daode, 
+      yunqi, yueli, x, y, 
+      valid)
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{type,jdbcType=CHAR}, 
+      #{isUse,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}, #{linggen,jdbcType=INTEGER}, 
+      #{jin,jdbcType=INTEGER}, #{mu,jdbcType=INTEGER}, #{shui,jdbcType=INTEGER}, #{huo,jdbcType=INTEGER}, 
+      #{tu,jdbcType=INTEGER}, #{feng,jdbcType=INTEGER}, #{lei,jdbcType=INTEGER}, #{bing,jdbcType=INTEGER}, 
+      #{ti,jdbcType=INTEGER}, #{shen,jdbcType=INTEGER}, #{gongji,jdbcType=BIGINT}, #{fangyu,jdbcType=BIGINT}, 
+      #{yidongsudu,jdbcType=INTEGER}, #{grade,jdbcType=INTEGER}, #{hp,jdbcType=BIGINT}, 
+      #{shenshi,jdbcType=BIGINT}, #{zhenyuan,jdbcType=BIGINT}, #{daode,jdbcType=INTEGER}, 
+      #{yunqi,jdbcType=BIGINT}, #{yueli,jdbcType=BIGINT}, #{x,jdbcType=DECIMAL}, #{y,jdbcType=DECIMAL}, 
+      #{valid,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xx.scope.user.domain.UserPetDO">
+    insert into t_user_pet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="isUse != null">
+        is_use,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="linggen != null">
+        linggen,
+      </if>
+      <if test="jin != null">
+        jin,
+      </if>
+      <if test="mu != null">
+        mu,
+      </if>
+      <if test="shui != null">
+        shui,
+      </if>
+      <if test="huo != null">
+        huo,
+      </if>
+      <if test="tu != null">
+        tu,
+      </if>
+      <if test="feng != null">
+        feng,
+      </if>
+      <if test="lei != null">
+        lei,
+      </if>
+      <if test="bing != null">
+        bing,
+      </if>
+      <if test="ti != null">
+        ti,
+      </if>
+      <if test="shen != null">
+        shen,
+      </if>
+      <if test="gongji != null">
+        gongji,
+      </if>
+      <if test="fangyu != null">
+        fangyu,
+      </if>
+      <if test="yidongsudu != null">
+        yidongsudu,
+      </if>
+      <if test="grade != null">
+        grade,
+      </if>
+      <if test="hp != null">
+        hp,
+      </if>
+      <if test="shenshi != null">
+        shenshi,
+      </if>
+      <if test="zhenyuan != null">
+        zhenyuan,
+      </if>
+      <if test="daode != null">
+        daode,
+      </if>
+      <if test="yunqi != null">
+        yunqi,
+      </if>
+      <if test="yueli != null">
+        yueli,
+      </if>
+      <if test="x != null">
+        x,
+      </if>
+      <if test="y != null">
+        y,
+      </if>
+      <if test="valid != null">
+        valid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="isUse != null">
+        #{isUse,jdbcType=CHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="linggen != null">
+        #{linggen,jdbcType=INTEGER},
+      </if>
+      <if test="jin != null">
+        #{jin,jdbcType=INTEGER},
+      </if>
+      <if test="mu != null">
+        #{mu,jdbcType=INTEGER},
+      </if>
+      <if test="shui != null">
+        #{shui,jdbcType=INTEGER},
+      </if>
+      <if test="huo != null">
+        #{huo,jdbcType=INTEGER},
+      </if>
+      <if test="tu != null">
+        #{tu,jdbcType=INTEGER},
+      </if>
+      <if test="feng != null">
+        #{feng,jdbcType=INTEGER},
+      </if>
+      <if test="lei != null">
+        #{lei,jdbcType=INTEGER},
+      </if>
+      <if test="bing != null">
+        #{bing,jdbcType=INTEGER},
+      </if>
+      <if test="ti != null">
+        #{ti,jdbcType=INTEGER},
+      </if>
+      <if test="shen != null">
+        #{shen,jdbcType=INTEGER},
+      </if>
+      <if test="gongji != null">
+        #{gongji,jdbcType=BIGINT},
+      </if>
+      <if test="fangyu != null">
+        #{fangyu,jdbcType=BIGINT},
+      </if>
+      <if test="yidongsudu != null">
+        #{yidongsudu,jdbcType=INTEGER},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="hp != null">
+        #{hp,jdbcType=BIGINT},
+      </if>
+      <if test="shenshi != null">
+        #{shenshi,jdbcType=BIGINT},
+      </if>
+      <if test="zhenyuan != null">
+        #{zhenyuan,jdbcType=BIGINT},
+      </if>
+      <if test="daode != null">
+        #{daode,jdbcType=INTEGER},
+      </if>
+      <if test="yunqi != null">
+        #{yunqi,jdbcType=BIGINT},
+      </if>
+      <if test="yueli != null">
+        #{yueli,jdbcType=BIGINT},
+      </if>
+      <if test="x != null">
+        #{x,jdbcType=DECIMAL},
+      </if>
+      <if test="y != null">
+        #{y,jdbcType=DECIMAL},
+      </if>
+      <if test="valid != null">
+        #{valid,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xx.scope.user.domain.UserPetDO">
+    update t_user_pet
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="isUse != null">
+        is_use = #{isUse,jdbcType=CHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="linggen != null">
+        linggen = #{linggen,jdbcType=INTEGER},
+      </if>
+      <if test="jin != null">
+        jin = #{jin,jdbcType=INTEGER},
+      </if>
+      <if test="mu != null">
+        mu = #{mu,jdbcType=INTEGER},
+      </if>
+      <if test="shui != null">
+        shui = #{shui,jdbcType=INTEGER},
+      </if>
+      <if test="huo != null">
+        huo = #{huo,jdbcType=INTEGER},
+      </if>
+      <if test="tu != null">
+        tu = #{tu,jdbcType=INTEGER},
+      </if>
+      <if test="feng != null">
+        feng = #{feng,jdbcType=INTEGER},
+      </if>
+      <if test="lei != null">
+        lei = #{lei,jdbcType=INTEGER},
+      </if>
+      <if test="bing != null">
+        bing = #{bing,jdbcType=INTEGER},
+      </if>
+      <if test="ti != null">
+        ti = #{ti,jdbcType=INTEGER},
+      </if>
+      <if test="shen != null">
+        shen = #{shen,jdbcType=INTEGER},
+      </if>
+      <if test="gongji != null">
+        gongji = #{gongji,jdbcType=BIGINT},
+      </if>
+      <if test="fangyu != null">
+        fangyu = #{fangyu,jdbcType=BIGINT},
+      </if>
+      <if test="yidongsudu != null">
+        yidongsudu = #{yidongsudu,jdbcType=INTEGER},
+      </if>
+      <if test="grade != null">
+        grade = #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="hp != null">
+        hp = #{hp,jdbcType=BIGINT},
+      </if>
+      <if test="shenshi != null">
+        shenshi = #{shenshi,jdbcType=BIGINT},
+      </if>
+      <if test="zhenyuan != null">
+        zhenyuan = #{zhenyuan,jdbcType=BIGINT},
+      </if>
+      <if test="daode != null">
+        daode = #{daode,jdbcType=INTEGER},
+      </if>
+      <if test="yunqi != null">
+        yunqi = #{yunqi,jdbcType=BIGINT},
+      </if>
+      <if test="yueli != null">
+        yueli = #{yueli,jdbcType=BIGINT},
+      </if>
+      <if test="x != null">
+        x = #{x,jdbcType=DECIMAL},
+      </if>
+      <if test="y != null">
+        y = #{y,jdbcType=DECIMAL},
+      </if>
+      <if test="valid != null">
+        valid = #{valid,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xx.scope.user.domain.UserPetDO">
+    update t_user_pet
+    set user_id = #{userId,jdbcType=BIGINT},
+      type = #{type,jdbcType=CHAR},
+      is_use = #{isUse,jdbcType=CHAR},
+      name = #{name,jdbcType=VARCHAR},
+      linggen = #{linggen,jdbcType=INTEGER},
+      jin = #{jin,jdbcType=INTEGER},
+      mu = #{mu,jdbcType=INTEGER},
+      shui = #{shui,jdbcType=INTEGER},
+      huo = #{huo,jdbcType=INTEGER},
+      tu = #{tu,jdbcType=INTEGER},
+      feng = #{feng,jdbcType=INTEGER},
+      lei = #{lei,jdbcType=INTEGER},
+      bing = #{bing,jdbcType=INTEGER},
+      ti = #{ti,jdbcType=INTEGER},
+      shen = #{shen,jdbcType=INTEGER},
+      gongji = #{gongji,jdbcType=BIGINT},
+      fangyu = #{fangyu,jdbcType=BIGINT},
+      yidongsudu = #{yidongsudu,jdbcType=INTEGER},
+      grade = #{grade,jdbcType=INTEGER},
+      hp = #{hp,jdbcType=BIGINT},
+      shenshi = #{shenshi,jdbcType=BIGINT},
+      zhenyuan = #{zhenyuan,jdbcType=BIGINT},
+      daode = #{daode,jdbcType=INTEGER},
+      yunqi = #{yunqi,jdbcType=BIGINT},
+      yueli = #{yueli,jdbcType=BIGINT},
+      x = #{x,jdbcType=DECIMAL},
+      y = #{y,jdbcType=DECIMAL},
+      valid = #{valid,jdbcType=CHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <resultMap extends="BaseResultMap" id="UserPetDTOResultMap" type="com.xx.scope.user.domain.UserPetDTO">
+    <result column="now_hp" jdbcType="DECIMAL" property="nowHp" />
+    <result column="now_gongji" jdbcType="DECIMAL" property="nowGongji" />
+    <result column="now_fangyu" jdbcType="DECIMAL" property="nowFangyu" />
+    <result column="now_zhenyuan" jdbcType="DECIMAL" property="nowZhenyuan" />
+  </resultMap>
+
+  <!---->
+  <select id="selectUsePetList" resultMap="UserPetDTOResultMap">
+    select up.*, up.gongji as now_gongji, up.fangyu as now_fangyu,up.hp as now_hp, up.zhenyuan as now_zhenyuan
+    from t_user_pet up
+    where up.user_id = #{userId,jdbcType=BIGINT}
+    and up.is_use = '1'
+    order by up.yueli DESC
+  </select>
+</mapper>

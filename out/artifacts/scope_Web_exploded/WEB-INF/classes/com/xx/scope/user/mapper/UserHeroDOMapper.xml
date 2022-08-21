@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xx.scope.user.mapper.UserHeroDOMapper">
+  <resultMap id="BaseResultMap" type="com.xx.scope.user.domain.UserHeroDO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="hero_id" jdbcType="BIGINT" property="heroId" />
+    <result column="type" jdbcType="CHAR" property="type" />
+    <result column="icon_id" jdbcType="BIGINT" property="iconId" />
+    <result column="color" jdbcType="CHAR" property="color" />
+    <result column="sex" jdbcType="CHAR" property="sex" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="des" jdbcType="VARCHAR" property="des" />
+    <result column="grade" jdbcType="INTEGER" property="grade" />
+    <result column="soul" jdbcType="BIGINT" property="soul" />
+    <result column="attack" jdbcType="BIGINT" property="attack" />
+    <result column="defense" jdbcType="BIGINT" property="defense" />
+    <result column="speed" jdbcType="INTEGER" property="speed" />
+    <result column="hp" jdbcType="BIGINT" property="hp" />
+    <result column="mp" jdbcType="BIGINT" property="mp" />
+    <result column="yue_li" jdbcType="BIGINT" property="yueLi" />
+    <result column="tianfu_id" jdbcType="BIGINT" property="tianfuId" />
+    <result column="skill_id" jdbcType="BIGINT" property="skillId" />
+    <result column="attack_up" jdbcType="INTEGER" property="attackUp" />
+    <result column="defense_up" jdbcType="INTEGER" property="defenseUp" />
+    <result column="hp_up" jdbcType="INTEGER" property="hpUp" />
+    <result column="mp_up" jdbcType="INTEGER" property="mpUp" />
+    <result column="speed_up" jdbcType="INTEGER" property="speedUp" />
+    <result column="current_attack" jdbcType="BIGINT" property="currentAttack" />
+    <result column="current_defense" jdbcType="BIGINT" property="currentDefense" />
+    <result column="current_hp" jdbcType="BIGINT" property="currentHp" />
+    <result column="current_mp" jdbcType="BIGINT" property="currentMp" />
+    <result column="current_speed" jdbcType="INTEGER" property="currentSpeed" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="valid" jdbcType="CHAR" property="valid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, hero_id, type, icon_id, color, sex, name, des, grade, soul, attack, 
+    defense, speed, hp, mp, yue_li, tianfu_id, skill_id, attack_up, defense_up, hp_up, 
+    mp_up, speed_up, current_attack, current_defense, current_hp, current_mp, current_speed, 
+    sort, valid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_hero
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from user_hero
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xx.scope.user.domain.UserHeroDO">
+    insert into user_hero (id, user_id, hero_id, 
+      type, icon_id, color, sex, 
+      name, des, grade, soul, 
+      attack, defense, speed, 
+      hp, mp, yue_li, tianfu_id, 
+      skill_id, attack_up, defense_up, 
+      hp_up, mp_up, speed_up, 
+      current_attack, current_defense, current_hp, 
+      current_mp, current_speed, sort, 
+      valid)
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{heroId,jdbcType=BIGINT}, 
+      #{type,jdbcType=CHAR}, #{iconId,jdbcType=BIGINT}, #{color,jdbcType=CHAR}, #{sex,jdbcType=CHAR}, 
+      #{name,jdbcType=VARCHAR}, #{des,jdbcType=VARCHAR}, #{grade,jdbcType=INTEGER}, #{soul,jdbcType=BIGINT}, 
+      #{attack,jdbcType=BIGINT}, #{defense,jdbcType=BIGINT}, #{speed,jdbcType=INTEGER}, 
+      #{hp,jdbcType=BIGINT}, #{mp,jdbcType=BIGINT}, #{yueLi,jdbcType=BIGINT}, #{tianfuId,jdbcType=BIGINT}, 
+      #{skillId,jdbcType=BIGINT}, #{attackUp,jdbcType=INTEGER}, #{defenseUp,jdbcType=INTEGER}, 
+      #{hpUp,jdbcType=INTEGER}, #{mpUp,jdbcType=INTEGER}, #{speedUp,jdbcType=INTEGER}, 
+      #{currentAttack,jdbcType=BIGINT}, #{currentDefense,jdbcType=BIGINT}, #{currentHp,jdbcType=BIGINT}, 
+      #{currentMp,jdbcType=BIGINT}, #{currentSpeed,jdbcType=INTEGER}, #{sort,jdbcType=INTEGER}, 
+      #{valid,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xx.scope.user.domain.UserHeroDO">
+    insert into user_hero
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="heroId != null">
+        hero_id,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="iconId != null">
+        icon_id,
+      </if>
+      <if test="color != null">
+        color,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="des != null">
+        des,
+      </if>
+      <if test="grade != null">
+        grade,
+      </if>
+      <if test="soul != null">
+        soul,
+      </if>
+      <if test="attack != null">
+        attack,
+      </if>
+      <if test="defense != null">
+        defense,
+      </if>
+      <if test="speed != null">
+        speed,
+      </if>
+      <if test="hp != null">
+        hp,
+      </if>
+      <if test="mp != null">
+        mp,
+      </if>
+      <if test="yueLi != null">
+        yue_li,
+      </if>
+      <if test="tianfuId != null">
+        tianfu_id,
+      </if>
+      <if test="skillId != null">
+        skill_id,
+      </if>
+      <if test="attackUp != null">
+        attack_up,
+      </if>
+      <if test="defenseUp != null">
+        defense_up,
+      </if>
+      <if test="hpUp != null">
+        hp_up,
+      </if>
+      <if test="mpUp != null">
+        mp_up,
+      </if>
+      <if test="speedUp != null">
+        speed_up,
+      </if>
+      <if test="currentAttack != null">
+        current_attack,
+      </if>
+      <if test="currentDefense != null">
+        current_defense,
+      </if>
+      <if test="currentHp != null">
+        current_hp,
+      </if>
+      <if test="currentMp != null">
+        current_mp,
+      </if>
+      <if test="currentSpeed != null">
+        current_speed,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="valid != null">
+        valid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="heroId != null">
+        #{heroId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="iconId != null">
+        #{iconId,jdbcType=BIGINT},
+      </if>
+      <if test="color != null">
+        #{color,jdbcType=CHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="des != null">
+        #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="soul != null">
+        #{soul,jdbcType=BIGINT},
+      </if>
+      <if test="attack != null">
+        #{attack,jdbcType=BIGINT},
+      </if>
+      <if test="defense != null">
+        #{defense,jdbcType=BIGINT},
+      </if>
+      <if test="speed != null">
+        #{speed,jdbcType=INTEGER},
+      </if>
+      <if test="hp != null">
+        #{hp,jdbcType=BIGINT},
+      </if>
+      <if test="mp != null">
+        #{mp,jdbcType=BIGINT},
+      </if>
+      <if test="yueLi != null">
+        #{yueLi,jdbcType=BIGINT},
+      </if>
+      <if test="tianfuId != null">
+        #{tianfuId,jdbcType=BIGINT},
+      </if>
+      <if test="skillId != null">
+        #{skillId,jdbcType=BIGINT},
+      </if>
+      <if test="attackUp != null">
+        #{attackUp,jdbcType=INTEGER},
+      </if>
+      <if test="defenseUp != null">
+        #{defenseUp,jdbcType=INTEGER},
+      </if>
+      <if test="hpUp != null">
+        #{hpUp,jdbcType=INTEGER},
+      </if>
+      <if test="mpUp != null">
+        #{mpUp,jdbcType=INTEGER},
+      </if>
+      <if test="speedUp != null">
+        #{speedUp,jdbcType=INTEGER},
+      </if>
+      <if test="currentAttack != null">
+        #{currentAttack,jdbcType=BIGINT},
+      </if>
+      <if test="currentDefense != null">
+        #{currentDefense,jdbcType=BIGINT},
+      </if>
+      <if test="currentHp != null">
+        #{currentHp,jdbcType=BIGINT},
+      </if>
+      <if test="currentMp != null">
+        #{currentMp,jdbcType=BIGINT},
+      </if>
+      <if test="currentSpeed != null">
+        #{currentSpeed,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="valid != null">
+        #{valid,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xx.scope.user.domain.UserHeroDO">
+    update user_hero
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="heroId != null">
+        hero_id = #{heroId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="iconId != null">
+        icon_id = #{iconId,jdbcType=BIGINT},
+      </if>
+      <if test="color != null">
+        color = #{color,jdbcType=CHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="des != null">
+        des = #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        grade = #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="soul != null">
+        soul = #{soul,jdbcType=BIGINT},
+      </if>
+      <if test="attack != null">
+        attack = #{attack,jdbcType=BIGINT},
+      </if>
+      <if test="defense != null">
+        defense = #{defense,jdbcType=BIGINT},
+      </if>
+      <if test="speed != null">
+        speed = #{speed,jdbcType=INTEGER},
+      </if>
+      <if test="hp != null">
+        hp = #{hp,jdbcType=BIGINT},
+      </if>
+      <if test="mp != null">
+        mp = #{mp,jdbcType=BIGINT},
+      </if>
+      <if test="yueLi != null">
+        yue_li = #{yueLi,jdbcType=BIGINT},
+      </if>
+      <if test="tianfuId != null">
+        tianfu_id = #{tianfuId,jdbcType=BIGINT},
+      </if>
+      <if test="skillId != null">
+        skill_id = #{skillId,jdbcType=BIGINT},
+      </if>
+      <if test="attackUp != null">
+        attack_up = #{attackUp,jdbcType=INTEGER},
+      </if>
+      <if test="defenseUp != null">
+        defense_up = #{defenseUp,jdbcType=INTEGER},
+      </if>
+      <if test="hpUp != null">
+        hp_up = #{hpUp,jdbcType=INTEGER},
+      </if>
+      <if test="mpUp != null">
+        mp_up = #{mpUp,jdbcType=INTEGER},
+      </if>
+      <if test="speedUp != null">
+        speed_up = #{speedUp,jdbcType=INTEGER},
+      </if>
+      <if test="currentAttack != null">
+        current_attack = #{currentAttack,jdbcType=BIGINT},
+      </if>
+      <if test="currentDefense != null">
+        current_defense = #{currentDefense,jdbcType=BIGINT},
+      </if>
+      <if test="currentHp != null">
+        current_hp = #{currentHp,jdbcType=BIGINT},
+      </if>
+      <if test="currentMp != null">
+        current_mp = #{currentMp,jdbcType=BIGINT},
+      </if>
+      <if test="currentSpeed != null">
+        current_speed = #{currentSpeed,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="valid != null">
+        valid = #{valid,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xx.scope.user.domain.UserHeroDO">
+    update user_hero
+    set user_id = #{userId,jdbcType=BIGINT},
+      hero_id = #{heroId,jdbcType=BIGINT},
+      type = #{type,jdbcType=CHAR},
+      icon_id = #{iconId,jdbcType=BIGINT},
+      color = #{color,jdbcType=CHAR},
+      sex = #{sex,jdbcType=CHAR},
+      name = #{name,jdbcType=VARCHAR},
+      des = #{des,jdbcType=VARCHAR},
+      grade = #{grade,jdbcType=INTEGER},
+      soul = #{soul,jdbcType=BIGINT},
+      attack = #{attack,jdbcType=BIGINT},
+      defense = #{defense,jdbcType=BIGINT},
+      speed = #{speed,jdbcType=INTEGER},
+      hp = #{hp,jdbcType=BIGINT},
+      mp = #{mp,jdbcType=BIGINT},
+      yue_li = #{yueLi,jdbcType=BIGINT},
+      tianfu_id = #{tianfuId,jdbcType=BIGINT},
+      skill_id = #{skillId,jdbcType=BIGINT},
+      attack_up = #{attackUp,jdbcType=INTEGER},
+      defense_up = #{defenseUp,jdbcType=INTEGER},
+      hp_up = #{hpUp,jdbcType=INTEGER},
+      mp_up = #{mpUp,jdbcType=INTEGER},
+      speed_up = #{speedUp,jdbcType=INTEGER},
+      current_attack = #{currentAttack,jdbcType=BIGINT},
+      current_defense = #{currentDefense,jdbcType=BIGINT},
+      current_hp = #{currentHp,jdbcType=BIGINT},
+      current_mp = #{currentMp,jdbcType=BIGINT},
+      current_speed = #{currentSpeed,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER},
+      valid = #{valid,jdbcType=CHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <resultMap id="UserHeroDTOResultMap" extends="BaseResultMap" type="com.xx.scope.user.domain.UserHeroDTO">
+
+  </resultMap>
+  <!--获取弟子基础信息列表-->
+  <select id="selectUserHeroList" resultMap="UserHeroDTOResultMap">
+    select *
+    from user_hero
+    where user_id = #{userId}
+    <if test="isAciton == '1'.toString()"> and sort > 0 and sort <![CDATA[<=]]> 9 </if>
+    <if test="isAciton != '1'.toString()"> and sort <![CDATA[>]]> 9 and sort != 0 </if>
+
+  </select>
+
+  <!--  计算单个英雄属性-->
+  <update id="updateHeroPropertyById" >
+      update user_hero as uh
+      left JOIN (select hero_id,sum(attack+attack*strengthen_level*0.05+attack*starlevel) as attack, sum(defense+defense*strengthen_level*0.05+defense*starlevel) as defense, sum(speed+speed*strengthen_level*0.05+speed*starlevel) as speed, sum(hp+hp*strengthen_level*0.05+hp*starlevel) as hp, sum(mp+mp*strengthen_level*0.05+mp*starlevel) as mp
+                  from user_item_arm
+                  where hero_id = #{id}) as uia
+              on(uia.hero_id = uh.id)
+      set current_attack = ROUND(uh.attack + uh.attack * uh.attack_up*0.0001 +  0.5*uh.grade, 0) + ifnull(uia.attack,0),
+      current_defense = ROUND(uh.defense + uh.defense * uh.defense_up*0.0001 +  0.5*uh.grade, 0) + ifnull(uia.defense,0),
+      current_hp = ROUND(uh.hp + uh.hp * uh.hp_up*0.0001 +  0.5*uh.grade, 0) + ifnull(uia.hp,0),
+      current_mp = ROUND(uh.mp + uh.mp * uh.mp_up*0.0001 +  0.5*uh.grade, 0) + ifnull(uia.mp,0),
+      current_speed = ROUND(uh.speed + uh.speed * uh.speed_up*0.0001 +  0.5*uh.grade, 0) + ifnull(uia.speed,0)
+      where uh.id = #{id}
+  </update>
+
+<!--  计算用户所有角色属性-->
+  <update id="updateHeroPropertyByUserId" >
+     update user_hero as uh
+      left JOIN (select hero_id,sum(attack+attack*strengthen_level*0.05+attack*starlevel) as attack, sum(defense+defense*strengthen_level*0.05+defense*starlevel) as defense, sum(speed+speed*strengthen_level*0.05+speed*starlevel) as speed, sum(hp+hp*strengthen_level*0.05+hp*starlevel) as hp, sum(mp+mp*strengthen_level*0.05+mp*starlevel) as mp
+                              from user_item_arm
+                              where user_id = #{userId}
+                              GROUP BY hero_id) as uia
+                          on(uia.hero_id = uh.id)
+      set current_attack = ROUND(uh.attack + uh.attack * uh.attack_up*0.0001 +  0.5*uh.grade, 0) + uia.attack,
+      current_defense = ROUND(uh.defense + uh.defense * uh.defense_up*0.0001 +  0.5*uh.grade, 0) + uia.defense,
+      current_hp = ROUND(uh.hp + uh.hp * uh.hp_up*0.0001 +  0.5*uh.grade, 0) + uia.hp,
+      current_mp = ROUND(uh.mp + uh.mp * uh.mp_up*0.0001 +  0.5*uh.grade, 0) + uia.mp,
+      current_speed = ROUND(uh.speed + uh.speed * uh.speed_up*0.0001 +  0.5*uh.grade, 0) + uia.speed
+      where uh.user_id = #{userId}
+  </update>
+
+  <!--update user_hero
+  current_attack = ROUND(attack + attack * attack_up*0.0001 +  0.5*grade, 0),
+  current_defense = ROUND(defense + defense * defense_up*0.0001 +  0.5*grade, 0),
+  current_hp = ROUND(hp + hp * hp_up*0.0001 +  0.5*grade, 0),
+  current_mp = ROUND(mp + mp * mp_up*0.0001 +  0.5*grade, 0),
+  current_speed = ROUND(speed + speed * speed_up*0.0001 +  0.5*grade, 0)
+  where id = #{id}-->
+
+</mapper>

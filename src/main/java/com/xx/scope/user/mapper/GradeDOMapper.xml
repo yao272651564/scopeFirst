@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xx.scope.user.mapper.GradeDOMapper">
+  <resultMap id="BaseResultMap" type="com.xx.scope.user.domain.GradeDO">
+    <id column="level_num" jdbcType="INTEGER" property="levelNum" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="need_exp" jdbcType="BIGINT" property="needExp" />
+    <result column="gongji_up" jdbcType="BIGINT" property="gongjiUp" />
+    <result column="fangyu_up" jdbcType="BIGINT" property="fangyuUp" />
+    <result column="hp_up" jdbcType="BIGINT" property="hpUp" />
+    <result column="zhenyuan_up" jdbcType="BIGINT" property="zhenyuanUp" />
+    <result column="shenshi_up" jdbcType="BIGINT" property="shenshiUp" />
+    <result column="sudu_up" jdbcType="INTEGER" property="suduUp" />
+    <result column="up_rat" jdbcType="DOUBLE" property="upRat" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    level_num, name, need_exp, gongji_up, fangyu_up, hp_up, zhenyuan_up, shenshi_up, 
+    sudu_up, up_rat
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_grade
+    where level_num = #{levelNum,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_grade
+    where level_num = #{levelNum,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xx.scope.user.domain.GradeDO">
+    insert into t_grade (level_num, name, need_exp, 
+      gongji_up, fangyu_up, hp_up, 
+      zhenyuan_up, shenshi_up, sudu_up, 
+      up_rat)
+    values (#{levelNum,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{needExp,jdbcType=BIGINT}, 
+      #{gongjiUp,jdbcType=BIGINT}, #{fangyuUp,jdbcType=BIGINT}, #{hpUp,jdbcType=BIGINT}, 
+      #{zhenyuanUp,jdbcType=BIGINT}, #{shenshiUp,jdbcType=BIGINT}, #{suduUp,jdbcType=INTEGER}, 
+      #{upRat,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xx.scope.user.domain.GradeDO">
+    insert into t_grade
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="levelNum != null">
+        level_num,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="needExp != null">
+        need_exp,
+      </if>
+      <if test="gongjiUp != null">
+        gongji_up,
+      </if>
+      <if test="fangyuUp != null">
+        fangyu_up,
+      </if>
+      <if test="hpUp != null">
+        hp_up,
+      </if>
+      <if test="zhenyuanUp != null">
+        zhenyuan_up,
+      </if>
+      <if test="shenshiUp != null">
+        shenshi_up,
+      </if>
+      <if test="suduUp != null">
+        sudu_up,
+      </if>
+      <if test="upRat != null">
+        up_rat,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="levelNum != null">
+        #{levelNum,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="needExp != null">
+        #{needExp,jdbcType=BIGINT},
+      </if>
+      <if test="gongjiUp != null">
+        #{gongjiUp,jdbcType=BIGINT},
+      </if>
+      <if test="fangyuUp != null">
+        #{fangyuUp,jdbcType=BIGINT},
+      </if>
+      <if test="hpUp != null">
+        #{hpUp,jdbcType=BIGINT},
+      </if>
+      <if test="zhenyuanUp != null">
+        #{zhenyuanUp,jdbcType=BIGINT},
+      </if>
+      <if test="shenshiUp != null">
+        #{shenshiUp,jdbcType=BIGINT},
+      </if>
+      <if test="suduUp != null">
+        #{suduUp,jdbcType=INTEGER},
+      </if>
+      <if test="upRat != null">
+        #{upRat,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xx.scope.user.domain.GradeDO">
+    update t_grade
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="needExp != null">
+        need_exp = #{needExp,jdbcType=BIGINT},
+      </if>
+      <if test="gongjiUp != null">
+        gongji_up = #{gongjiUp,jdbcType=BIGINT},
+      </if>
+      <if test="fangyuUp != null">
+        fangyu_up = #{fangyuUp,jdbcType=BIGINT},
+      </if>
+      <if test="hpUp != null">
+        hp_up = #{hpUp,jdbcType=BIGINT},
+      </if>
+      <if test="zhenyuanUp != null">
+        zhenyuan_up = #{zhenyuanUp,jdbcType=BIGINT},
+      </if>
+      <if test="shenshiUp != null">
+        shenshi_up = #{shenshiUp,jdbcType=BIGINT},
+      </if>
+      <if test="suduUp != null">
+        sudu_up = #{suduUp,jdbcType=INTEGER},
+      </if>
+      <if test="upRat != null">
+        up_rat = #{upRat,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where level_num = #{levelNum,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xx.scope.user.domain.GradeDO">
+    update t_grade
+    set name = #{name,jdbcType=VARCHAR},
+      need_exp = #{needExp,jdbcType=BIGINT},
+      gongji_up = #{gongjiUp,jdbcType=BIGINT},
+      fangyu_up = #{fangyuUp,jdbcType=BIGINT},
+      hp_up = #{hpUp,jdbcType=BIGINT},
+      zhenyuan_up = #{zhenyuanUp,jdbcType=BIGINT},
+      shenshi_up = #{shenshiUp,jdbcType=BIGINT},
+      sudu_up = #{suduUp,jdbcType=INTEGER},
+      up_rat = #{upRat,jdbcType=DOUBLE}
+    where level_num = #{levelNum,jdbcType=INTEGER}
+  </update>
+</mapper>

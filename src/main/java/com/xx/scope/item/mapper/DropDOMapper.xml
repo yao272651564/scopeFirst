@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xx.scope.item.mapper.DropDOMapper">
+  <resultMap id="BaseResultMap" type="com.xx.scope.item.domain.DropDO">
+    <id column="src_id" jdbcType="BIGINT" property="srcId" />
+    <result column="drop_group_id" jdbcType="BIGINT" property="dropGroupId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="random_group_count" jdbcType="INTEGER" property="randomGroupCount" />
+    <result column="quest_group_id" jdbcType="BIGINT" property="questGroupId" />
+    <result column="quest_type" jdbcType="CHAR" property="questType" />
+    <result column="quest_id" jdbcType="BIGINT" property="questId" />
+    <result column="drop_min_money" jdbcType="INTEGER" property="dropMinMoney" />
+    <result column="drop_max_money" jdbcType="INTEGER" property="dropMaxMoney" />
+    <result column="valid" jdbcType="CHAR" property="valid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    src_id, drop_group_id, name, random_group_count, quest_group_id, quest_type, quest_id, 
+    drop_min_money, drop_max_money, valid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_drop
+    where src_id = #{srcId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_drop
+    where src_id = #{srcId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xx.scope.item.domain.DropDO">
+    insert into t_drop (src_id, drop_group_id, name, 
+      random_group_count, quest_group_id, quest_type, 
+      quest_id, drop_min_money, drop_max_money, 
+      valid)
+    values (#{srcId,jdbcType=BIGINT}, #{dropGroupId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{randomGroupCount,jdbcType=INTEGER}, #{questGroupId,jdbcType=BIGINT}, #{questType,jdbcType=CHAR}, 
+      #{questId,jdbcType=BIGINT}, #{dropMinMoney,jdbcType=INTEGER}, #{dropMaxMoney,jdbcType=INTEGER}, 
+      #{valid,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xx.scope.item.domain.DropDO">
+    insert into t_drop
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="srcId != null">
+        src_id,
+      </if>
+      <if test="dropGroupId != null">
+        drop_group_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="randomGroupCount != null">
+        random_group_count,
+      </if>
+      <if test="questGroupId != null">
+        quest_group_id,
+      </if>
+      <if test="questType != null">
+        quest_type,
+      </if>
+      <if test="questId != null">
+        quest_id,
+      </if>
+      <if test="dropMinMoney != null">
+        drop_min_money,
+      </if>
+      <if test="dropMaxMoney != null">
+        drop_max_money,
+      </if>
+      <if test="valid != null">
+        valid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="srcId != null">
+        #{srcId,jdbcType=BIGINT},
+      </if>
+      <if test="dropGroupId != null">
+        #{dropGroupId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="randomGroupCount != null">
+        #{randomGroupCount,jdbcType=INTEGER},
+      </if>
+      <if test="questGroupId != null">
+        #{questGroupId,jdbcType=BIGINT},
+      </if>
+      <if test="questType != null">
+        #{questType,jdbcType=CHAR},
+      </if>
+      <if test="questId != null">
+        #{questId,jdbcType=BIGINT},
+      </if>
+      <if test="dropMinMoney != null">
+        #{dropMinMoney,jdbcType=INTEGER},
+      </if>
+      <if test="dropMaxMoney != null">
+        #{dropMaxMoney,jdbcType=INTEGER},
+      </if>
+      <if test="valid != null">
+        #{valid,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xx.scope.item.domain.DropDO">
+    update t_drop
+    <set>
+      <if test="dropGroupId != null">
+        drop_group_id = #{dropGroupId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="randomGroupCount != null">
+        random_group_count = #{randomGroupCount,jdbcType=INTEGER},
+      </if>
+      <if test="questGroupId != null">
+        quest_group_id = #{questGroupId,jdbcType=BIGINT},
+      </if>
+      <if test="questType != null">
+        quest_type = #{questType,jdbcType=CHAR},
+      </if>
+      <if test="questId != null">
+        quest_id = #{questId,jdbcType=BIGINT},
+      </if>
+      <if test="dropMinMoney != null">
+        drop_min_money = #{dropMinMoney,jdbcType=INTEGER},
+      </if>
+      <if test="dropMaxMoney != null">
+        drop_max_money = #{dropMaxMoney,jdbcType=INTEGER},
+      </if>
+      <if test="valid != null">
+        valid = #{valid,jdbcType=CHAR},
+      </if>
+    </set>
+    where src_id = #{srcId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xx.scope.item.domain.DropDO">
+    update t_drop
+    set drop_group_id = #{dropGroupId,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      random_group_count = #{randomGroupCount,jdbcType=INTEGER},
+      quest_group_id = #{questGroupId,jdbcType=BIGINT},
+      quest_type = #{questType,jdbcType=CHAR},
+      quest_id = #{questId,jdbcType=BIGINT},
+      drop_min_money = #{dropMinMoney,jdbcType=INTEGER},
+      drop_max_money = #{dropMaxMoney,jdbcType=INTEGER},
+      valid = #{valid,jdbcType=CHAR}
+    where src_id = #{srcId,jdbcType=BIGINT}
+  </update>
+</mapper>
